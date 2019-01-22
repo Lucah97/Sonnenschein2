@@ -67,8 +67,10 @@ public class PictureFrameBehaviour : MonoBehaviour {
         //Adjust speed by jumping
         if ((Input.GetAxis("Jump") == 1) && (!hasSpedUp))
         {
-            curSpeed *= (spamDirection ? 1.5f : 0.75f);
-            endSpeed *= (spamDirection ? 1f : 1.32f);
+            curTiling -= (addTiling * curSpeed);
+            curOffset -= (addOffset * curSpeed);
+            //curSpeed *= (spamDirection ? 1.5f : 0.75f);
+            //endSpeed *= (spamDirection ? 1f : 1.32f);
             hasSpedUp = true;
         }
         if (Input.GetAxis("Jump") == 0)
