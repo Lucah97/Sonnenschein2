@@ -9,6 +9,8 @@ public class MovePlatform : MonoBehaviour, InterfaceLetherTrigger {
     public float movementSpeed;
     public float distanceCutOff;
 
+    public GameObject[] gears;
+
     private Vector3 desPos;
     private Vector3 origPos;
 
@@ -29,5 +31,12 @@ public class MovePlatform : MonoBehaviour, InterfaceLetherTrigger {
     public void OnSwitchTrigger()
 	{
         desPos = (desPos == origPos) ? origPos + moveDist : origPos;
+
+        foreach (GameObject gear in gears) 
+        {
+            //gear.GetComponent<Animation>()
+            gear.GetComponent<Animation>().Play();
+        }
+
 	}
 }
