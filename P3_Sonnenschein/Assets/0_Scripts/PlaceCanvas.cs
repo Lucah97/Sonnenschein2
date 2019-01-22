@@ -14,7 +14,6 @@ public class PlaceCanvas : MonoBehaviour {
 
     private void LateUpdate()
     {
-        Debug.Log(Input.GetAxis("RT"));
         if (curMessage != null)
         {
             if (Input.GetAxis("RT")>0)

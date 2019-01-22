@@ -12,6 +12,11 @@ public class SwitchTrigger : MonoBehaviour
     public float distanceCutOff;
     public GameObject[] Targets;
 
+    [Header("UI Message")]
+    public UI_Types uitype;
+    public Ctrl_Buttons button;
+    public string text;
+
     private Transform dickTransform;
     private float desiredDeg;
     private bool hasBeenActivated = false;
@@ -32,6 +37,24 @@ public class SwitchTrigger : MonoBehaviour
             dickTransform.rotation = Quaternion.Slerp(dickTransform.rotation,
                                                       Quaternion.Euler(new Vector3(0, 0, desiredDeg)),
                                                       flipSpeed * Time.deltaTime);
+        }
+
+        if (curMessage != null)
+        {
+            if ((Input.GetAxis("RT") > 0) && (!hasBeenActivated))
+            {
+                flipDick();
+                hasBeenActivated = true;
+
+                foreach (var target in Targets)
+                {
+                    target.GetComponent<InterfaceLetherTrigger>().OnSwitchTrigger();
+                }
+            }
+            if (Input.GetAxis("RT") == 0)
+            {
+                hasBeenActivated = false;
+            }
         }
     }
 
@@ -57,7 +80,7 @@ public class SwitchTrigger : MonoBehaviour
         {
             if (curMessage == null)
             {
-                curMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.X, "Flip Switch", GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+                curMessage = UI_Spawner.instance.spawn(uitype, button, text, GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
             }
         }
     }
