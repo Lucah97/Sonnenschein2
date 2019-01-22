@@ -22,6 +22,9 @@ public class PictureFrameBehaviour : MonoBehaviour {
     private float curTiling;
     private float curOffset;
 
+    private float origTiling;
+    private float origOffset;
+
     private bool hasSpedUp = false;
 
     private PlayerMovement pm;
@@ -32,6 +35,9 @@ public class PictureFrameBehaviour : MonoBehaviour {
         holeMat = transform.GetChild(0).GetComponent<Renderer>().material;
         curTiling = holeMat.GetTextureScale("_MainTex").x;
         curOffset = holeMat.GetTextureOffset("_MainTex").x;
+
+        origTiling = holeMat.GetTextureScale("_MainTex").x;
+        origOffset = holeMat.GetTextureOffset("_MainTex").x;
 
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
@@ -67,13 +73,15 @@ public class PictureFrameBehaviour : MonoBehaviour {
         //Adjust speed by jumping
         if ((Input.GetAxis("Jump") == 1) && (!hasSpedUp))
         {
-            if (curTiling > 1f)
+            curTiling -= (addTiling * curSpeed) * spamSpeed;
+            curOffset -= (addOffset * curSpeed) * spamSpeed;
+
+            if (curTiling > 1)
             {
-                curTiling -= (addTiling * curSpeed) * spamSpeed;
-                curOffset -= (addOffset * curSpeed) * spamSpeed;
+                curTiling = origTiling;
+                curOffset = origOffset;
             }
-            //curSpeed *= (spamDirection ? 1.5f : 0.75f);
-            //endSpeed *= (spamDirection ? 1f : 1.32f);
+
             hasSpedUp = true;
         }
         if (Input.GetAxis("Jump") == 0)
