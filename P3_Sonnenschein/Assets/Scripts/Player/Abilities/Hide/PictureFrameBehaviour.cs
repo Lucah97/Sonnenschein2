@@ -5,7 +5,7 @@ using UnityEngine;
 public class PictureFrameBehaviour : MonoBehaviour {
 
     public bool spamDirection = true;
-    public float speedLerpSpeed;
+    public float spamSpeed = 1;
 
     public float addTiling;
     public float addOffset;
@@ -67,8 +67,11 @@ public class PictureFrameBehaviour : MonoBehaviour {
         //Adjust speed by jumping
         if ((Input.GetAxis("Jump") == 1) && (!hasSpedUp))
         {
-            curTiling -= (addTiling * curSpeed);
-            curOffset -= (addOffset * curSpeed);
+            if (curTiling > 1f)
+            {
+                curTiling -= (addTiling * curSpeed) * spamSpeed;
+                curOffset -= (addOffset * curSpeed) * spamSpeed;
+            }
             //curSpeed *= (spamDirection ? 1.5f : 0.75f);
             //endSpeed *= (spamDirection ? 1f : 1.32f);
             hasSpedUp = true;

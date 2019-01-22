@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spamDirection: 0
-  speedLerpSpeed: 1
+  spamSpeed: 2
   addTiling: -0.25
   addOffset: 0.1253
   curSpeed: 2.5
