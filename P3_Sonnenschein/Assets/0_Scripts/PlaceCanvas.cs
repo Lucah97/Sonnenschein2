@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class PlaceCanvas : MonoBehaviour {
 
     private GameObject curMessage;
+
+    private void LateUpdate()
+    {
+        if (curMessage != null)
+        {
+            //Input
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
