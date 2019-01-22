@@ -1155,12 +1155,12 @@ Prefab:
         type: 2}
       propertyPath: patrolSpots.Array.data[0]
       value: 
-      objectReference: {fileID: 1560299687}
+      objectReference: {fileID: 1137182506}
     - target: {fileID: 114699562909206110, guid: 00b8ddad0f7bf9540a3c3755740993bc,
         type: 2}
       propertyPath: patrolSpots.Array.data[1]
       value: 
-      objectReference: {fileID: 1137182506}
+      objectReference: {fileID: 1560299687}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00b8ddad0f7bf9540a3c3755740993bc, type: 2}
   m_IsPrefabAsset: 0
