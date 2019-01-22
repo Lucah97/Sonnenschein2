@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class PlaceCanvas : MonoBehaviour {
 
+    [Header("UI Message")]
+    public UI_Types uitype;
+    public Ctrl_Buttons button;
+    public string text;
+
+    public bool isActivated = false;
     private GameObject curMessage;
 
     private void LateUpdate()
     {
+        Debug.Log(Input.GetAxis("RT"));
         if (curMessage != null)
         {
-            //Input
+            if (Input.GetAxis("RT")>0)
+            {
+                transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+                isActivated = true;
+                GameObject.Destroy(curMessage);
+                curMessage = null;
+            }
         }
     }
 
@@ -18,9 +31,9 @@ public class PlaceCanvas : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if (curMessage == null)
+            if ((curMessage == null) && (!isActivated))
             {
-                curMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.X, "Place Canvas", GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+                curMessage = UI_Spawner.instance.spawn(uitype, button, text, GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
             }
         }
     }
@@ -29,7 +42,7 @@ public class PlaceCanvas : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if (curMessage != null)
+            if ((curMessage != null) && (!isActivated))
             {
                 GameObject.Destroy(curMessage);
                 curMessage = null;

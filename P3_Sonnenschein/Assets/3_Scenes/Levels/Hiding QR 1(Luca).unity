@@ -12125,6 +12125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4214a015f70baf48a29b3d599ac7775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uitype: 0
+  button: 7
+  text: Place Canvas
 --- !u!4 &1643460652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4300207568564762, guid: 00bb2e7a9c0268e40990d791c976f2e7,
