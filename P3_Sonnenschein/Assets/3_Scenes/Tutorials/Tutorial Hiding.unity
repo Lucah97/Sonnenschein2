@@ -231,9 +231,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154242364}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -1.6}
-  m_LocalScale: {x: 0.097551, y: 1, z: 0.0993}
+  m_LocalScale: {x: 0.09995821, y: 1.2713014, z: 0.100310646}
   m_Children: []
   m_Father: {fileID: 1897496982}
   m_RootOrder: 0
@@ -267,7 +267,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 49f2940f2e3de95499e2706639a19109, type: 2}
+  - {fileID: 2100000, guid: 17c6ed5957a0afb4689f116bae1996d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -311,7 +311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &180003912
 Transform:
   m_ObjectHideFlags: 0
@@ -532,11 +532,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4115930698448692, guid: f985de23c14b1234d8038f1443ad7cd6, type: 2}
       propertyPath: m_LocalScale.y
-      value: 3.401703
+      value: 5.355981
       objectReference: {fileID: 0}
     - target: {fileID: 4115930698448692, guid: f985de23c14b1234d8038f1443ad7cd6, type: 2}
       propertyPath: m_LocalScale.x
-      value: 6.9246607
+      value: 3.5821965
       objectReference: {fileID: 0}
     - target: {fileID: 65500930480302190, guid: f985de23c14b1234d8038f1443ad7cd6,
         type: 2}
@@ -556,12 +556,22 @@ Prefab:
     - target: {fileID: 65500930480302190, guid: f985de23c14b1234d8038f1443ad7cd6,
         type: 2}
       propertyPath: m_Size.y
-      value: 1.7855246
+      value: 1.3234752
       objectReference: {fileID: 0}
     - target: {fileID: 65500930480302190, guid: f985de23c14b1234d8038f1443ad7cd6,
         type: 2}
       propertyPath: m_Center.y
-      value: 0.14034177
+      value: 0.06980922
+      objectReference: {fileID: 0}
+    - target: {fileID: 65500930480302190, guid: f985de23c14b1234d8038f1443ad7cd6,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.3177264
+      objectReference: {fileID: 0}
+    - target: {fileID: 65500930480302190, guid: f985de23c14b1234d8038f1443ad7cd6,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0.04655719
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f985de23c14b1234d8038f1443ad7cd6, type: 2}
@@ -632,7 +642,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266830058}
-  m_Text: "Just looking at art \ngave me new \npower to\nmove on."
+  m_Text: "Every now \nand then you will\nfind pictures to\ngain new\nabilities."
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -807,20 +817,20 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &587978406
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 587978405}
-  m_LocalRotation: {x: -0.5000001, y: 0.4999999, z: -0.5000001, w: 0.4999999}
-  m_LocalPosition: {x: 11.12, y: 4.71, z: 1.27}
-  m_LocalScale: {x: 0.87623066, y: 1, z: 0.8576358}
+  m_LocalRotation: {x: -0.7071068, y: -0.00000014901161, z: -0.00000014901161, w: 0.7071068}
+  m_LocalPosition: {x: 11.7, y: 5.73, z: 1.27}
+  m_LocalScale: {x: 0.87623066, y: 1, z: 0.69705206}
   m_Children: []
   m_Father: {fileID: 622689726}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -180, y: -90, z: 89.99999}
+  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 89.99999}
 --- !u!64 &587978407
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1096,7 +1106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &742311806
 Transform:
   m_ObjectHideFlags: 0
@@ -1717,11 +1727,8 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1050158635}
-  m_Text: 'The System always
-
-    controls everything.
-
-    But not me!'
+  m_Text: "Entering the curators\xB4\nvision will cause\nyou to fail the level.\nPress
+    \"o\" to hide!"
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -1937,7 +1944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1185606447
 Transform:
   m_ObjectHideFlags: 0
@@ -2059,7 +2066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1317390180
 Transform:
   m_ObjectHideFlags: 0
@@ -2192,7 +2199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1398674929
 Transform:
   m_ObjectHideFlags: 0
@@ -2420,7 +2427,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1448044627}
-  m_Text: "I told myself that \nI could only \nadvance when I \nhang up my own \nart!"
+  m_Text: "Place your \nartwork to \nprogress into \nthe next\nlevel."
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -2720,7 +2727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2068847258
 Transform:
   m_ObjectHideFlags: 0
