@@ -28,7 +28,7 @@ public class UI_Spawner : MonoBehaviour {
 
     public GameObject spawn(UI_Types t, Ctrl_Buttons b, string text, GameObject anchor, Vector3 offset)
     {
-        GameObject UIobj = new GameObject();
+        GameObject UIobj;
         Texture2D curButton;
 
         UIobj = Instantiate(UI_Prefabs[(int)t]);
@@ -38,7 +38,7 @@ public class UI_Spawner : MonoBehaviour {
         UIobj.GetComponent<UI_Obj_Interface>().setImg(curButton);
         UIobj.GetComponent<UI_Obj_Interface>().setAnchorObject(anchor, offset);
 
-        spawnedElements.Add(UIobj);
+        //spawnedElements.Add(UIobj);
 
         return UIobj;
     }
