@@ -289,7 +289,7 @@ MonoBehaviour:
   speedLerpSpeed: 1
   addTiling: -0.25
   addOffset: 0.1253
-  curSpeed: 6.5
-  endSpeed: 0.1
+  curSpeed: 2.5
+  endSpeed: 1
   speedDecrease: 1.5
   minTiling: 0.027
