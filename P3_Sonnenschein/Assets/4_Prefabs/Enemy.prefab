@@ -8472,6 +8472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1.5
+  loose: {fileID: 32900000, guid: 21a8ec0bfc3d111409fa2e2a18a45173, type: 3}
 --- !u!114 &114699562909206110
 MonoBehaviour:
   m_ObjectHideFlags: 1

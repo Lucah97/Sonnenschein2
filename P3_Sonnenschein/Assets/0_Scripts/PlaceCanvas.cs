@@ -9,6 +9,7 @@ public class PlaceCanvas : MonoBehaviour {
     public Ctrl_Buttons button;
     public string text;
 
+    public GameObject DoorToOpen;
     public bool isActivated = false;
     private GameObject curMessage;
 
@@ -18,10 +19,14 @@ public class PlaceCanvas : MonoBehaviour {
         {
             if (Input.GetAxis("RT")>0)
             {
+                //Activate Renderer
                 transform.GetChild(0).GetComponent<Renderer>().enabled = true;
                 isActivated = true;
+                //Destroy Message
                 GameObject.Destroy(curMessage);
                 curMessage = null;
+                //Open Door
+                DoorToOpen.GetComponent<InterfaceLetherTrigger>().OnSwitchTrigger();
             }
         }
     }
