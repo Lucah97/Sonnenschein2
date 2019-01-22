@@ -26,21 +26,25 @@ public class PlayerAbilities : MonoBehaviour {
     private void Update()
     {
         //Legs
-        if (Input.GetKeyDown(KeyCode.U))
+        if ((Input.GetKeyDown(KeyCode.U)))
         {
             useAbility(en_Abil.PA_LEGS, -1);
         }
-        if (Input.GetKeyDown(KeyCode.I))
+        if ((Input.GetKeyDown(KeyCode.I)))
         {
             useAbility(en_Abil.PA_LEGS, 1);
         }
+        if (Input.GetButtonDown("X"))
+        {
+            useAbility(en_Abil.PA_LEGS, -(int)GetComponent<PlayerMovement>().getPlayerDirection().x);
+        }
         //Hide
-        if (Input.GetKeyDown(KeyCode.O))
+        if ((Input.GetButtonDown("B")) || (Input.GetKeyDown(KeyCode.O)))
         {
             useAbility(en_Abil.PA_HIDE, 0);
         }
         //Canon
-        if (Input.GetKeyDown(KeyCode.P))
+        if ((Input.GetButtonDown("Y")) || (Input.GetKeyDown(KeyCode.P)))
         {
             useAbility(en_Abil.PA_CANON, 0);
         }

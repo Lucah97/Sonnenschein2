@@ -71,7 +71,7 @@ public class PictureFrameBehaviour : MonoBehaviour {
         }
 
         //Adjust speed by jumping
-        if ((Input.GetAxis("Jump") == 1) && (!hasSpedUp))
+        if (((Input.GetButtonDown("Jump")) || (Input.GetButtonDown("B"))) && (!hasSpedUp))
         {
             curTiling -= (addTiling * curSpeed) * spamSpeed;
             curOffset -= (addOffset * curSpeed) * spamSpeed;
@@ -84,7 +84,7 @@ public class PictureFrameBehaviour : MonoBehaviour {
 
             hasSpedUp = true;
         }
-        if (Input.GetAxis("Jump") == 0)
+        if ((Input.GetButtonDown("Jump")) || (Input.GetButtonDown("B")))
         {
             hasSpedUp = false;
 
