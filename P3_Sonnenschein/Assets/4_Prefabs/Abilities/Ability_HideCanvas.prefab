@@ -289,7 +289,7 @@ MonoBehaviour:
   spamSpeed: 0.1
   addTiling: -0.25
   addOffset: 0.1253
-  curSpeed: 3
-  endSpeed: 1
+  curSpeed: 2.8
+  endSpeed: 0.925
   speedDecrease: 1.5
   minTiling: 0.027
