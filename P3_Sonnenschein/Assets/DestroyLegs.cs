@@ -32,6 +32,7 @@ public class DestroyLegs : MonoBehaviour {
         Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         Camera.main.gameObject.transform.GetChild(0).GetComponent<VideoPlayer>().clip = loose;
         Camera.main.gameObject.transform.GetChild(0).GetComponent<VideoPlayer>().Play();
+        Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().isDead = true;
 
         //Disable Controls
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;

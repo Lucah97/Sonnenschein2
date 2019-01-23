@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class StaticVisionConeBehaviour : MonoBehaviour {
+
+    public VideoClip loose;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +25,14 @@ public class StaticVisionConeBehaviour : MonoBehaviour {
             PlayerAbilities pa = other.GetComponent<PlayerAbilities>();
             if (!pa.isHidden())
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                //Enable video
+                Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+                Camera.main.gameObject.transform.GetChild(0).GetComponent<VideoPlayer>().clip = loose;
+                Camera.main.gameObject.transform.GetChild(0).GetComponent<VideoPlayer>().Play();
+                Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().isDead = true;
+
+                //Disable Controls
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
             }
         }
     }

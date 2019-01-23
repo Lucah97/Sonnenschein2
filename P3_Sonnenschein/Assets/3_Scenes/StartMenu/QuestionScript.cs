@@ -27,6 +27,11 @@ public class QuestionScript : MonoBehaviour {
         {
             canvas.GetComponent<CanvasScript>().nextQuestion();
         }
+
+        if (gameObject.name.Equals("Question03"))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
 }

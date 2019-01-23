@@ -6,9 +6,12 @@ using UnityEngine;
 public class GuardFSM_Patrol : NPC_Base {
 
     public float distanceCutOff = 0.3f;
+    public float waitBeforeTurn = 0.25f;
     public GameObject[] patrolSpots;
 
     private int curSpot = 0;
+    private bool beginWait = false;
+    private float elapsedWaitTime = 0f;
 
     private void Awake()
     {
@@ -35,16 +38,31 @@ public class GuardFSM_Patrol : NPC_Base {
 
         Debug.Log(npc.name);
         Debug.Log(patrolSpots[0].name);
-        if (Vector3.Distance(patrolSpots[curSpot].transform.position, npc.transform.position) < distanceCutOff)
+        if (!beginWait)
         {
-            curSpot++;
-            if (curSpot >= patrolSpots.Length)
+            if (Vector3.Distance(patrolSpots[curSpot].transform.position, npc.transform.position) < distanceCutOff)
             {
-                curSpot = 0;
+                beginWait = true;
             }
         }
+        else
+        {
+            elapsedWaitTime += Time.deltaTime;
+            if (elapsedWaitTime > waitBeforeTurn)
+            {
+                curSpot++;
+                if (curSpot >= patrolSpots.Length)
+                {
+                    curSpot = 0;
+                }
+
+                elapsedWaitTime = 0f;
+                beginWait = false;
+            }
+        }
+
         npc.GetComponent<NavMeshAgent>().SetDestination(patrolSpots[curSpot].transform.position);
-	}
+    }
 
 	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	
