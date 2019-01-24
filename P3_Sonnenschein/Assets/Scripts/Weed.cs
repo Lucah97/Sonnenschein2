@@ -9,10 +9,16 @@ public class Weed : MonoBehaviour {
 
     public bool weedls;
 
+    public float WeedSpeed = 0.05f;
+
     public float maximum;
     public float minimum;
 
     public float HUE;
+
+    public float WeedTime = 2f;
+
+    private float curTime;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +35,7 @@ public class Weed : MonoBehaviour {
 
             curHue.basic.hueShift = Mathf.Lerp(minimum, maximum, HUE);
 
-            HUE += 0.05f * Time.deltaTime;
+            HUE += WeedSpeed * Time.deltaTime;
 
             PPP.colorGrading.settings = curHue;
 
@@ -39,6 +45,10 @@ public class Weed : MonoBehaviour {
             {
                 HUE = 0f;
             }
+
+            curTime += Time.deltaTime;
+
+            if (curTime > WeedTime) { weedls = false; curHue.basic.hueShift = Mathf.Lerp(minimum, maximum, 0.5f); }
         }
 		
 
@@ -56,8 +66,10 @@ public class Weed : MonoBehaviour {
 
     private void weed()
     {
+        curTime = 0;
         weedls = true;
-
+        transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.GetComponent<Collider>().enabled = false;
     }
 
 }
