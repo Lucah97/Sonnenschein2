@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine.Video;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.PostProcessing;
 
 public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
 
@@ -13,19 +15,30 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
 
     public bool LoadCustomScene;
 
+    public bool ReturnDoor;
+
     public string customscene;
 
-    public static Transform LastPos;
+    public GameObject SceneSaver;
+
+    public static Vector3 LastPos;
 
     public static bool Returning;
+
+    private GameObject curMessage = null;
 
     private void Start()
     {
        if(Returning )
         {
-            GameObject.FindGameObjectWithTag("Player").transform.position = LastPos.position;
-            GameObject.FindGameObjectWithTag("Player").transform.rotation = LastPos.rotation;
+            GameObject.FindGameObjectWithTag("Player").transform.position = LastPos;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAbilities>().CanonStrenght = 14;
             Returning = false;
+        }
+       if(ReturnDoor)
+        {
+            customscene = GameObject.Find("SceneSaver").GetComponent<OldScene>().LastScene;
+            LoadCustomScene = true;
         }
     }
 
@@ -35,25 +48,60 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
         isOpen = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if ((isOpen) && (other.tag == "Player"))
+        Debug.Log("PotatoNarnia");
+        if (other.tag == "Player")
         {
-            if (LoadCustomScene)
+
+            Debug.Log("Narnia1");
+            if (LoadCustomScene || Returning)
             {
+                Debug.Log("Narnia2");
                 if (Input.GetButtonDown("Jump"))
                 {
-                    LastPos = GameObject.FindGameObjectWithTag("Player").transform;
+                    if (!ReturnDoor)
+                    {
+                        Debug.Log("Narnia3");
+                        LastPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+                        PostProcessingProfile PPP = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+
+                        var curHue = PPP.colorGrading.settings;
+
+                        curHue.basic.hueShift = Mathf.Lerp(-180, 180, 0.5f);
+                        curHue.basic.saturation = 1f;
+                        PPP.colorGrading.settings = curHue;
+
+                        string Scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+                        SceneSaver.GetComponent<OldScene>().LastScene = Scene;
+                    }
+
                     Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().CustomScene = customscene;
                     Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().customload = true;
 
                     Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
 
-                    Returning = true;
+                    if (ReturnDoor)
+                    {
+                        Returning = true;
+                    }
                 }
             }
+        }
+    }
 
-            Debug.Log("afafafafafa");
+    private void OnTriggerEnter(Collider other)
+    {
+        if (LoadCustomScene && (other.tag == "Player"))
+        {
+            curMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.RT, "Nibba", GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+        }
+        if ((isOpen) && (other.tag == "Player"))
+        {
+
+            //Debug.Log("afafafafafa");
 
             //Enable video
             Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
@@ -62,6 +110,15 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
 
             //Disable Controls
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (LoadCustomScene && (other.tag == "Player"))
+        {
+            Destroy(curMessage.gameObject);
+            curMessage = null;
         }
     }
 }

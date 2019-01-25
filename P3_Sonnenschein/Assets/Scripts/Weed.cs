@@ -41,7 +41,7 @@ public class Weed : MonoBehaviour {
 
             PPP.colorGrading.settings = curHue;
 
-            Debug.Log("HUE" + curHue.basic.hueShift);
+            //Debug.Log("HUE" + curHue.basic.hueShift);
 
             if (HUE >= 1f)
             {

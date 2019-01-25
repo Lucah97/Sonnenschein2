@@ -21,6 +21,7 @@ public class PlayerAbilities : MonoBehaviour {
 
     [Header("Canon Variables")]
     public Vector3 canonSpawnOffset;
+    public float CanonStrenght = 14;
 
     //debug
     private void Update()
@@ -188,6 +189,8 @@ public class PlayerAbilities : MonoBehaviour {
             GameObject nCanon = Instantiate(canonPrefab, transform.position + canonSpawnOffset, canonPrefab.transform.rotation);
             Vector3 nPlayerPos = transform.position;
             nPlayerPos += (canonSpawnOffset * 3);
+            nCanon.GetComponent<CanonBehaviour>().strength = CanonStrenght;
+            nCanon.GetComponent<CanonTrajectory>().strength = CanonStrenght;
             transform.position = nPlayerPos;
             transform.parent = nCanon.transform.GetChild(0).transform;
             GetComponent<PlayerMovement>().freezeVelocity();
