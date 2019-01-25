@@ -35,6 +35,8 @@ public class Weed : MonoBehaviour {
 
             curHue.basic.hueShift = Mathf.Lerp(minimum, maximum, HUE);
 
+            curHue.basic.saturation = 2f;
+
             HUE += WeedSpeed * Time.deltaTime;
 
             PPP.colorGrading.settings = curHue;
@@ -48,7 +50,7 @@ public class Weed : MonoBehaviour {
 
             curTime += Time.deltaTime;
 
-            if (curTime > WeedTime) { weedls = false; curHue.basic.hueShift = Mathf.Lerp(minimum, maximum, 0.5f); PPP.colorGrading.settings = curHue; }
+            if (curTime > WeedTime) { weedls = false; curHue.basic.hueShift = Mathf.Lerp(minimum, maximum, 0.5f); curHue.basic.saturation = 1f; PPP.colorGrading.settings = curHue; }
         }
 		
 
