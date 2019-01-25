@@ -27,7 +27,7 @@ public class CanonTrajectory : MonoBehaviour {
     public void updateTrajectory()
     {
         LineRenderer lr = GetComponent<LineRenderer>();
-        model = transform.GetChild(0).gameObject;
+        model = transform.GetChild(0).GetChild(0).gameObject;
 
         Vector3[] seg = new Vector3[segAmount+1];
         seg[0] = transform.position;

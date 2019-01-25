@@ -192,7 +192,7 @@ public class PlayerAbilities : MonoBehaviour {
             nCanon.GetComponent<CanonBehaviour>().strength = CanonStrenght;
             nCanon.GetComponent<CanonTrajectory>().strength = CanonStrenght;
             transform.position = nPlayerPos;
-            transform.parent = nCanon.transform.GetChild(0).transform;
+            transform.parent = nCanon.transform.GetChild(0).GetChild(0).transform;
             GetComponent<PlayerMovement>().freezeVelocity();
             GetComponent<PlayerMovement>().enabled = false;
         }

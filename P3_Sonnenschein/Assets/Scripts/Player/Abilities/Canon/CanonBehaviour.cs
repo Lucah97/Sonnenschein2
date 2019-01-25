@@ -7,6 +7,7 @@ using UnityEngine;
 public class CanonBehaviour : MonoBehaviour {
 
     public bool allowInput = true;
+    public float timeUntilDespawn = 2f;
 
     [Header("Rotation Properties")]
     public float maxRotation;
@@ -21,12 +22,15 @@ public class CanonBehaviour : MonoBehaviour {
     private CanonTrajectory ct;
     private GameObject model;
 
+    private bool hasShot = false;
+    private float elapsedTime = 0f;
+
     //### Built-In Functions ###
     void Start ()
     {
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         ct = GetComponent<CanonTrajectory>();
-        model = transform.GetChild(0).gameObject;
+        model = transform.GetChild(0).GetChild(0).gameObject;
 
         //Reset rotation variables
         model.transform.rotation = Quaternion.Euler(Vector3.zero);
@@ -35,11 +39,22 @@ public class CanonBehaviour : MonoBehaviour {
 
 	void Update ()
     {
-		if (allowInput) { processInput(); }
+        if (!hasShot)
+        {
+            if (allowInput) { processInput(); }
 
-        //Update canon trajectory
-        applyRotation();
-        ct.updateTrajectory();
+            //Update canon trajectory
+            applyRotation();
+            ct.updateTrajectory();
+        }
+        else
+        {
+            elapsedTime += Time.deltaTime;
+            if (elapsedTime >= timeUntilDespawn)
+            {
+                Destroy(this.gameObject);
+            }
+        }
 	}
 
     //### Custom Functions ###
@@ -59,7 +74,8 @@ public class CanonBehaviour : MonoBehaviour {
             pm.setVelocity(model.transform.up * (strength * velocityMult));
             pm.transform.parent = null;
 
-            GameObject.Destroy(this.gameObject);
+            transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", true);
+            hasShot = true;
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class UI_Spawner : MonoBehaviour {
@@ -21,6 +22,7 @@ public class UI_Spawner : MonoBehaviour {
         else
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
 
         spawnedElements = new List<GameObject>();
