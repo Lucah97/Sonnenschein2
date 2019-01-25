@@ -48,7 +48,7 @@ public class Weed : MonoBehaviour {
 
             curTime += Time.deltaTime;
 
-            if (curTime > WeedTime) { weedls = false; curHue.basic.hueShift = Mathf.Lerp(minimum, maximum, 0.5f); }
+            if (curTime > WeedTime) { weedls = false; curHue.basic.hueShift = Mathf.Lerp(minimum, maximum, 0.5f); PPP.colorGrading.settings = curHue; }
         }
 		
 
