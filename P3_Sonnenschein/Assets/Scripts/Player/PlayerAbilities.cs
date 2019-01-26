@@ -156,6 +156,13 @@ public class PlayerAbilities : MonoBehaviour {
             {
                 GameObject legs = Instantiate(legsPrefab, desiredPosition, legsPrefab.transform.rotation);
                 legs.GetComponent<LegBehaviour>().movementDirection = ((dir < 0) ? false : true);
+
+                //Spawn Cloud effect
+                FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
+                                            legs.transform.position,
+                                            Quaternion.Euler(new Vector3(-90, 0, 0)),
+                                            0.5f);
+
                 return;
             }
         }
@@ -188,13 +195,25 @@ public class PlayerAbilities : MonoBehaviour {
         {
             GameObject nCanon = Instantiate(canonPrefab, transform.position + canonSpawnOffset, canonPrefab.transform.rotation);
             Vector3 nPlayerPos = transform.position;
-            nPlayerPos += (canonSpawnOffset * 3);
+            nPlayerPos += ((new Vector3(Mathf.Abs(canonSpawnOffset.x),
+                                        Mathf.Abs(canonSpawnOffset.y),
+                                        Mathf.Abs(canonSpawnOffset.z)) * 2));
             nCanon.GetComponent<CanonBehaviour>().strength = CanonStrenght;
             nCanon.GetComponent<CanonTrajectory>().strength = CanonStrenght;
             transform.position = nPlayerPos;
             transform.parent = nCanon.transform.GetChild(0).GetChild(0).transform;
             GetComponent<PlayerMovement>().freezeVelocity();
             GetComponent<PlayerMovement>().enabled = false;
+            //Disable Rigidbody
+            GetComponent<Rigidbody>().detectCollisions = false;
+            //Disable Rendering
+            transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
+
+            //Spawn Cloud effect
+            FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
+                                        nCanon.transform.position,
+                                        Quaternion.Euler(new Vector3(-90, 0, 0)),
+                                        0.85f);
         }
     }
 

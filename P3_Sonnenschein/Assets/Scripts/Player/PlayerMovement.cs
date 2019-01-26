@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        Debug.Log("Rigidbody Vel: "+rb.velocity);
+        Debug.Log("Vel X: " + velX);
         if (allowInput)
         {
             processInput();
@@ -90,6 +92,7 @@ public class PlayerMovement : MonoBehaviour {
             transform.up = Vector3.up;
             transform.rotation = Quaternion.Euler(Vector3.zero);
             velX = rb.velocity.x;
+            freezeVelocity();
             setAllowIinput(true);
 
             CameraMovement.instance.setOverridePosition(false, Vector3.zero);
@@ -127,8 +130,6 @@ public class PlayerMovement : MonoBehaviour {
         int dir = Mathf.Clamp((int)getPlayerDirection().x, -1, 1);
         Vector3 eulerChar = Vector3.zero;
         eulerChar.y = -dir * 90;
-
-        //visChar.rotation = Quaternion.Euler(eulerChar);
 
         visChar.rotation = Quaternion.Slerp(visChar.rotation, Quaternion.Euler(eulerChar), Time.deltaTime * rotationTime);
     }

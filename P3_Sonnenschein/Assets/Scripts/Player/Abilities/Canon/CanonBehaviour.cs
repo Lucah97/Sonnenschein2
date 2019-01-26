@@ -75,11 +75,16 @@ public class CanonBehaviour : MonoBehaviour {
         //Launch Canon
         if (Input.GetAxis("Jump") == 1)
         {
+            //Setup Player after shooting
             pm.enabled = true;
             pm.setAllowIinput(false);
             pm.setCanonMode(true);
             pm.setVelocity(model.transform.up * (strength * velocityMult));
             pm.transform.parent = null;
+            //Disable Rigidbody
+            pm.GetComponent<Rigidbody>().detectCollisions = true;
+            //Disable Rendering
+            pm.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
 
             transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", true);
             hasShot = true;
