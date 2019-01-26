@@ -24,7 +24,6 @@ public class GuardFSM_Patrol : NPC_Base {
         setValues(0.19f, 8f, Color.blue);
 
         npc = animator.gameObject;
-        npcAnim = npc.transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("objDestroyed", false);
 
         //Spawn Symbol
@@ -37,8 +36,6 @@ public class GuardFSM_Patrol : NPC_Base {
         npc = animator.gameObject;
         patrolSpots = animator.GetComponent<GimmeDemPatrolSpots>().patrolSpots;
 
-        Debug.Log(npc.name);
-        Debug.Log(patrolSpots[0].name);
         if (!beginWait)
         {
             if (Vector3.Distance(patrolSpots[curSpot].transform.position, npc.transform.position) < distanceCutOff)

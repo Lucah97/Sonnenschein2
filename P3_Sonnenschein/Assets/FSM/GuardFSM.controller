@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followObj: {fileID: 0}
   npc: {fileID: 0}
+  npcAnim: {fileID: 0}
   chaseObj: {fileID: 0}
   movementSpeed: 3.85
   rotationSpeed: 600
@@ -85,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followObj: {fileID: 0}
   npc: {fileID: 0}
+  npcAnim: {fileID: 0}
   chaseObj: {fileID: 0}
   movementSpeed: 2
   rotationSpeed: 550
@@ -103,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followObj: {fileID: 0}
   npc: {fileID: 0}
+  npcAnim: {fileID: 0}
   chaseObj: {fileID: 0}
   movementSpeed: 1.4
   rotationSpeed: 510
