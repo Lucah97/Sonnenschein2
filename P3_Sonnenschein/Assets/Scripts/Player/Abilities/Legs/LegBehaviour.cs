@@ -20,8 +20,6 @@ public class LegBehaviour : MonoBehaviour {
 
     public float collisionMult;
 
-    public GameObject despawnCloud;
-
     private bool leadingEnemy = false;
 
     private Rigidbody rb;
@@ -68,6 +66,12 @@ public class LegBehaviour : MonoBehaviour {
                 GameObject nSym = sss.spawnSymbol(0);
                 TextMesh nText = nSym.GetComponent<TextMesh>();
                 nText.text = (maxBumps - curBumps).ToString();
+
+                //Spawn Cloud effect
+                FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
+                                            transform.position,
+                                            Quaternion.Euler(new Vector3(-90, 0, 0)),
+                                            0.35f);
 
                 //Reverse Direction / Count Bumps
                 movementDirection = !movementDirection;
@@ -116,10 +120,10 @@ public class LegBehaviour : MonoBehaviour {
         this.tag = "Untagged";
 
         //Spawn Cloud effect
-        if (despawnCloud != null)
-        {
-            Instantiate(despawnCloud, transform.position, despawnCloud.transform.rotation);
-        }
+        FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
+                                    transform.position,
+                                    Quaternion.Euler(new Vector3(-90, 0, 0)),
+                                    0.8f);
 
         //> Later: Leg Animation <//
 

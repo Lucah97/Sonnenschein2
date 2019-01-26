@@ -17,6 +17,7 @@ public class CanonBehaviour : MonoBehaviour {
     [Header("Aim Properties")]
     public float strength;
     public float velocityMult;
+    public Transform shootSmokeSpot;
 
     private PlayerMovement pm;
     private CanonTrajectory ct;
@@ -52,6 +53,12 @@ public class CanonBehaviour : MonoBehaviour {
             elapsedTime += Time.deltaTime;
             if (elapsedTime >= timeUntilDespawn)
             {
+                //Spawn Cloud effect
+                FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
+                                            transform.position,
+                                            Quaternion.Euler(new Vector3(-90, 0, 0)),
+                                            2.1f);
+
                 Destroy(this.gameObject);
             }
         }
@@ -76,6 +83,12 @@ public class CanonBehaviour : MonoBehaviour {
 
             transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", true);
             hasShot = true;
+
+            //Spawn Cloud effect
+            FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
+                                        shootSmokeSpot.position,
+                                        Quaternion.Euler(new Vector3(-90, 0, 0)),
+                                        0.85f);
         }
     }
 

@@ -820,7 +820,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1982638996256898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.73249, y: -5.518676, z: -0.5664111}
+  m_LocalPosition: {x: 5.1635995, y: -3.42, z: -0.49297476}
   m_LocalScale: {x: 9.5, y: 9.5, z: 9.5}
   m_Children:
   - {fileID: 4121598483013230}
@@ -2267,10 +2267,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowInput: 1
+  timeUntilDespawn: 2
   maxRotation: 60
   rotationSpeed: 90
   strength: 10
   velocityMult: 2.07
+  shootSmokeSpot: {fileID: 4485660497358798}
 --- !u!120 &120722131640256610
 LineRenderer:
   m_ObjectHideFlags: 1
