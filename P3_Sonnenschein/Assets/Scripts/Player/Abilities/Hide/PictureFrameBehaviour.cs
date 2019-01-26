@@ -67,6 +67,12 @@ public class PictureFrameBehaviour : MonoBehaviour {
             pm.GetComponent<Collider>().enabled = true;
             pm.setApplyGravity(true);
 
+            //Spawn Cloud effect
+            FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
+                                        transform.position + (new Vector3(0, 0, -2)),
+                                        Quaternion.Euler(new Vector3(-90, 0, 0)),
+                                        0.62f);
+
             Destroy(this.gameObject);
         }
 
