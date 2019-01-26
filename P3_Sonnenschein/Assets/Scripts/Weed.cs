@@ -24,7 +24,10 @@ public class Weed : MonoBehaviour {
 	void Start () {
         weedls = false;
 
-	}
+        var curHue = PPP.colorGrading.settings;
+        curHue.basic.hueShift = 0f;
+        PPP.colorGrading.settings = curHue;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -72,6 +75,12 @@ public class Weed : MonoBehaviour {
         weedls = true;
         transform.GetChild(0).gameObject.SetActive(false);
         gameObject.GetComponent<Collider>().enabled = false;
+
+        //Spawn Cloud effect
+        FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
+                                    transform.position,
+                                    Quaternion.Euler(new Vector3(-90, 0, 0)),
+                                    2f);
     }
 
 }

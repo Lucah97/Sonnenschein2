@@ -10,7 +10,7 @@ public class OldScene : MonoBehaviour {
     public GameObject Door;
 
     private void Start()
-    {
+    { 
         DontDestroyOnLoad(this.gameObject);
     }
 }

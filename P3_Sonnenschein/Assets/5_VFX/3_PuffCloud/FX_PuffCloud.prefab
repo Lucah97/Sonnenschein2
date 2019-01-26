@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4429212030124982}
   - component: {fileID: 198300876899612100}
   - component: {fileID: 199361819854616628}
+  - component: {fileID: 114442924066204360}
   m_Layer: 0
   m_Name: FX_PuffCloud
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114442924066204360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1235530044751048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b925f96058db3854785141959a885496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198300876899612100
 ParticleSystem:
   m_ObjectHideFlags: 1

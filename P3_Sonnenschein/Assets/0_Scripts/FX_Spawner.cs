@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class Effect_Spawner : MonoBehaviour {
+public class FX_Spawner : MonoBehaviour {
 
-    public static Effect_Spawner instance;
+    public static FX_Spawner instance;
 
     public GameObject[] effectObjects;
 
@@ -36,7 +36,7 @@ public class Effect_Spawner : MonoBehaviour {
 
 public enum en_EffectType
 {
+    Fireworks,
     SmokeCloud,
-    FireWorks,
     OtherStuff
 };

@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4798682569384626}
   - component: {fileID: 198630540918416738}
   - component: {fileID: 199213784089434032}
+  - component: {fileID: 114005993612617594}
   m_Layer: 0
   m_Name: FX_Fireworks
   m_TagString: Untagged
@@ -165,6 +166,17 @@ Transform:
   m_Father: {fileID: 4047791187778832}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114005993612617594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716046471171472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b925f96058db3854785141959a885496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198099095076743490
 ParticleSystem:
   m_ObjectHideFlags: 1
