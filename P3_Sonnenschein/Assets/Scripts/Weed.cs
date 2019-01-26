@@ -61,9 +61,9 @@ public class Weed : MonoBehaviour {
 	}
 
 
-    private void OnTriggerEnter(Collider col)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(col.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             weed();
         }

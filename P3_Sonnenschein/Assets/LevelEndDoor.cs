@@ -17,6 +17,8 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
 
     public bool ReturnDoor;
 
+    public bool IsTrigger;
+
     public string customscene;
 
     public GameObject SceneSaver;
@@ -58,7 +60,7 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
             if (LoadCustomScene || Returning)
             {
                 Debug.Log("Narnia2");
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") || IsTrigger)
                 {
                     if (!ReturnDoor)
                     {

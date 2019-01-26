@@ -5003,6 +5003,77 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ddb07d42a8f4894294aa1bb92633bd2, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &565432661
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4524914787784946, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 13.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524914787784946, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524914787784946, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524914787784946, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524914787784946, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524914787784946, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524914787784946, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524914787784946, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 114406383064582392, guid: e73481712d1fde04ea497735bcbb8194,
+        type: 2}
+      propertyPath: SceneSaver
+      value: 
+      objectReference: {fileID: 1726930703}
+    - target: {fileID: 1590254905507178, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+      propertyPath: m_Name
+      value: CustomDoor_WeedLand
+      objectReference: {fileID: 0}
+    - target: {fileID: 114406383064582392, guid: e73481712d1fde04ea497735bcbb8194,
+        type: 2}
+      propertyPath: customscene
+      value: WEED
+      objectReference: {fileID: 0}
+    - target: {fileID: 224380604170097018, guid: e73481712d1fde04ea497735bcbb8194,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114532458277740896, guid: e73481712d1fde04ea497735bcbb8194,
+        type: 2}
+      propertyPath: m_Text
+      value: DON'T ENTER
+      objectReference: {fileID: 0}
+    - target: {fileID: 114406383064582392, guid: e73481712d1fde04ea497735bcbb8194,
+        type: 2}
+      propertyPath: LoadCustomScene
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &569472481
 Prefab:
   m_ObjectHideFlags: 0
