@@ -11138,6 +11138,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114212618747754160, guid: 09a54ff7cce3ed744bc49d22bc05bee1,
+        type: 2}
+      propertyPath: CanonStrenght
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a54ff7cce3ed744bc49d22bc05bee1, type: 2}
   m_IsPrefabAsset: 0
