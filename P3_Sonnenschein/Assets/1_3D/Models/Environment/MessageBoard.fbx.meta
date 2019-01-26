@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: d10cc91e0273b4944bedf4ce1a467946
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Base
+    100002: Base_2
+    100004: Drehding
+    100006: Drehding_2
+    100008: Halterung
+    100010: Halterung_2
+    100012: Kugel
+    100014: Kugel_1
+    100016: Kugel_1_2
+    100018: Kugel_2
+    100020: //RootNode
+    100022: Null
+    100024: Null_2
+    100026: Scheinwerfer
+    100028: Scheinwerfer_1
+    100030: "W\xFCrfel"
+    100032: "W\xFCrfel_6"
+    400000: Base
+    400002: Base_2
+    400004: Drehding
+    400006: Drehding_2
+    400008: Halterung
+    400010: Halterung_2
+    400012: Kugel
+    400014: Kugel_1
+    400016: Kugel_1_2
+    400018: Kugel_2
+    400020: //RootNode
+    400022: Null
+    400024: Null_2
+    400026: Scheinwerfer
+    400028: Scheinwerfer_1
+    400030: "W\xFCrfel"
+    400032: "W\xFCrfel_6"
+    2100000: No Name
+    2300000: Base
+    2300002: Base_2
+    2300004: Drehding
+    2300006: Drehding_2
+    2300008: Halterung
+    2300010: Halterung_2
+    2300012: Kugel
+    2300014: Kugel_1
+    2300016: Kugel_1_2
+    2300018: Kugel_2
+    2300020: "W\xFCrfel"
+    2300022: "W\xFCrfel_6"
+    3300000: Base
+    3300002: Base_2
+    3300004: Drehding
+    3300006: Drehding_2
+    3300008: Halterung
+    3300010: Halterung_2
+    3300012: Kugel
+    3300014: Kugel_1
+    3300016: Kugel_1_2
+    3300018: Kugel_2
+    3300020: "W\xFCrfel"
+    3300022: "W\xFCrfel_6"
+    4300000: Drehding
+    4300002: Halterung
+    4300004: Kugel
+    4300006: Kugel_1
+    4300008: Base
+    4300010: Drehding_2
+    4300012: Halterung_2
+    4300014: Kugel_2
+    4300016: Kugel_1_2
+    4300018: Base_2
+    4300020: "W\xFCrfel_6"
+    4300022: "W\xFCrfel"
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

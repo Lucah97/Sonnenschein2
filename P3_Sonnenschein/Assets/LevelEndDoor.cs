@@ -65,18 +65,25 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
                         Debug.Log("Narnia3");
                         LastPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
-                        PostProcessingProfile PPP = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
-
-                        var curHue = PPP.colorGrading.settings;
-
-                        curHue.basic.hueShift = Mathf.Lerp(-180, 180, 0.5f);
-                        curHue.basic.saturation = 1f;
-                        PPP.colorGrading.settings = curHue;
+                        
 
                         string Scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
                         SceneSaver.GetComponent<OldScene>().LastScene = Scene;
                     }
+
+                    PostProcessingProfile PPP = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+
+                    if (GameObject.FindGameObjectWithTag("Weed") != null)
+                    {
+                        foreach (GameObject Weeders in GameObject.FindGameObjectsWithTag("Weed")) { Weeders.GetComponent<Weed>().weedls = false; }
+                    }
+
+                    var curHue = PPP.colorGrading.settings;
+
+                    curHue.basic.hueShift = Mathf.Lerp(-180, 180, 0.5f);
+                    curHue.basic.saturation = 1f;
+                    PPP.colorGrading.settings = curHue;
 
                     Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().CustomScene = customscene;
                     Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().customload = true;
