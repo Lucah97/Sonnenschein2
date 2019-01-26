@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 4720164671144934}
   - component: {fileID: 95590988411998372}
   m_Layer: 0
-  m_Name: Robot_UVisFuqed
+  m_Name: Robot_MDL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4670,11 +4670,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153888689212614}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 64.46, y: 2.305, z: 0}
+  m_LocalPosition: {x: 44.64, y: -11.176968, z: -5.5243034}
   m_LocalScale: {x: 0.94705, y: 0.947049, z: 0.94705}
   m_Children:
-  - {fileID: 4788498538668954}
   - {fileID: 4720164671144934}
+  - {fileID: 4788498538668954}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -7207,7 +7207,7 @@ Transform:
   - {fileID: 4627582214155126}
   - {fileID: 4634123257485086}
   m_Father: {fileID: 4143074767278676}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4726279548564298
 Transform:
@@ -7412,7 +7412,7 @@ Transform:
   m_Children:
   - {fileID: 4322574876900542}
   m_Father: {fileID: 4143074767278676}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!4 &4793440109455882
 Transform:

@@ -51,8 +51,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Debug.Log("Rigidbody Vel: "+rb.velocity);
-        Debug.Log("Vel X: " + velX);
         if (allowInput)
         {
             processInput();

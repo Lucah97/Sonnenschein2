@@ -24,6 +24,7 @@ public class GuardFSM_Patrol : NPC_Base {
         setValues(0.19f, 8f, Color.blue);
 
         npc = animator.gameObject;
+        npcAnim = npc.transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("objDestroyed", false);
 
         //Spawn Symbol
@@ -43,6 +44,9 @@ public class GuardFSM_Patrol : NPC_Base {
             if (Vector3.Distance(patrolSpots[curSpot].transform.position, npc.transform.position) < distanceCutOff)
             {
                 beginWait = true;
+                //Play stop animation
+                npcAnim.SetBool("stopWalk", true);
+                npcAnim.SetBool("Walking", false);
             }
         }
         else
@@ -58,6 +62,10 @@ public class GuardFSM_Patrol : NPC_Base {
 
                 elapsedWaitTime = 0f;
                 beginWait = false;
+
+                //Play walking animation
+                npcAnim.SetBool("stopWalk", false);
+                npcAnim.SetBool("Walking", true);
             }
         }
 

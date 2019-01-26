@@ -7,6 +7,7 @@ public class NPC_Base : StateMachineBehaviour
 {
     public GameObject followObj;
     public GameObject npc;
+    public Animator npcAnim;
     public GameObject chaseObj;
 
     public float movementSpeed;
@@ -20,9 +21,10 @@ public class NPC_Base : StateMachineBehaviour
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        followObj = animator.transform.GetChild(0).GetComponent<VisionConeDetection>().getFollowObj().gameObject;
+        followObj = animator.transform.GetChild(1).GetComponent<VisionConeDetection>().getFollowObj().gameObject;
 
         npc = animator.gameObject;
+        npcAnim = npc.transform.GetChild(0).GetComponent<Animator>();
 
         //Set movement/rotation Speed
         npc.GetComponent<NavMeshAgent>().speed = movementSpeed;
