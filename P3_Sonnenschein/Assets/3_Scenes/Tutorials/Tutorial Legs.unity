@@ -178,6 +178,88 @@ MonoBehaviour:
   overrideMovementDistance: 0.48
   overrideCameraDistance: -16
   attachedLights: []
+--- !u!1001 &7969659
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 805713521}
+    m_Modifications:
+    - target: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 46.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.547175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 65817978221481064, guid: 7fab6f399764b4f4989f95dc1b626841,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 11.113649
+      objectReference: {fileID: 0}
+    - target: {fileID: 65817978221481064, guid: 7fab6f399764b4f4989f95dc1b626841,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0.14981365
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298090295826410, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_Name
+      value: LegsNGuards_Logic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167018478464726, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_Name
+      value: LegsNGUards Tut
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167018478464726, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579773767551526, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579773767551526, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840476631060698, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+      propertyPath: m_Name
+      value: LegsNGuardsText
+      objectReference: {fileID: 0}
+    - target: {fileID: 102143549317198124, guid: 7fab6f399764b4f4989f95dc1b626841,
+        type: 2}
+      propertyPath: m_Text
+      value: "If there is\nan enemy you\ncan\xB4t get by,\ntry sending\nthe legs his
+        way"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fab6f399764b4f4989f95dc1b626841, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &56785582
 Prefab:
   m_ObjectHideFlags: 0
@@ -476,6 +558,7 @@ Transform:
   - {fileID: 1705886024}
   - {fileID: 123137947}
   - {fileID: 1502672265}
+  - {fileID: 1708804098}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -884,6 +967,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4356987989477314, guid: 1e91e375592f90142ac2bf9911992a77,
     type: 2}
   m_PrefabInternal: {fileID: 1930631932}
+--- !u!4 &1708804098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4920935865264654, guid: 7fab6f399764b4f4989f95dc1b626841,
+    type: 2}
+  m_PrefabInternal: {fileID: 7969659}
 --- !u!1001 &1725246510
 Prefab:
   m_ObjectHideFlags: 0

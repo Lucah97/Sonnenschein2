@@ -13,7 +13,7 @@ public class ExplainLegsUI : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            currMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.Y, "Spawn Legs", GameObject.Find("Player"), new Vector3(0, 2, 0));
+            currMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.X, "Spawn Legs", GameObject.Find("Player"), new Vector3(0, 2, 0));
         }
     }
 
