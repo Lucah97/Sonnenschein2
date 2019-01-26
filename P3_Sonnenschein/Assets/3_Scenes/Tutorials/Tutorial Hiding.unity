@@ -9089,6 +9089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pAbility: {fileID: 1037603784}
   picture: {fileID: 385206150}
+  giveAbility: 2
 --- !u!1001 &1753023634
 Prefab:
   m_ObjectHideFlags: 0

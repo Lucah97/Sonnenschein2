@@ -8,6 +8,8 @@ public class GainPower : MonoBehaviour {
 
     public GameObject picture;
 
+    public en_Abil giveAbility;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +17,7 @@ public class GainPower : MonoBehaviour {
         {
             picture.SetActive(false);
 
-            pAbility.addAbility(en_Abil.PA_HIDE);
+            pAbility.addAbility(giveAbility);
         }
     }
 
