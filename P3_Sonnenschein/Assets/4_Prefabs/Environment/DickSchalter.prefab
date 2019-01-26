@@ -529,3 +529,6 @@ MonoBehaviour:
   Targets:
   - {fileID: 0}
   - {fileID: 0}
+  uitype: 0
+  button: 7
+  text: 
