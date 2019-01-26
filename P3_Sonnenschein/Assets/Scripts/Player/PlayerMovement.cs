@@ -166,17 +166,6 @@ public class PlayerMovement : MonoBehaviour {
             {
                 if (hit.collider.gameObject.CompareTag("Solid"))
                 {
-                    /*
-                    float addStepHeight = 0;
-                    if ((checkStepHeight(hit.point.y, ref addStepHeight)) && (!hasHitWall) && (!hasJumped) && (isGrounded(false)) && (angleTooSteep(hit.normal)))
-                    {
-                        Vector3 newPos = transform.position;
-                        newPos.y += addStepHeight * 3;
-                        transform.position = newPos;
-                        
-                        break;
-                    }
-                    */
                     if (angleTooSteep(hit.normal))
                     {
                         hasHitWall = true;
@@ -242,7 +231,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public bool isGrounded(bool mode)
-    {
+    { 
         RaycastHit hit;
 
         float colRadius = GetComponent<CapsuleCollider>().radius;

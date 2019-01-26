@@ -25,13 +25,11 @@ public class PictureFrameBehaviour : MonoBehaviour {
     private float origTiling;
     private float origOffset;
 
-    private bool hasSpedUp = false;
-
     private PlayerMovement pm;
 
     private Material holeMat;
 
-	void Start () {
+    void Start() {
         holeMat = transform.GetChild(0).GetComponent<Renderer>().material;
         curTiling = holeMat.GetTextureScale("_MainTex").x;
         curOffset = holeMat.GetTextureOffset("_MainTex").x;
@@ -48,8 +46,8 @@ public class PictureFrameBehaviour : MonoBehaviour {
         pm.GetComponent<Collider>().enabled = false;
         pm.setApplyGravity(false);
     }
-	
-	void Update () {
+
+    void Update() {
         //Adjust texture tiling and offset
         curTiling += (addTiling * curSpeed * Time.deltaTime);
         curOffset += (addOffset * curSpeed * Time.deltaTime);
@@ -57,8 +55,8 @@ public class PictureFrameBehaviour : MonoBehaviour {
         holeMat.SetTextureScale("_MainTex", new Vector2(curTiling, curTiling));
         holeMat.SetTextureOffset("_MainTex", new Vector2(curOffset, curOffset));
 
-        //Check if finished
-        if (curTiling < minTiling)
+        //Check if finished / canceled
+        if ((curTiling < minTiling) || (Input.GetButtonDown("Jump")))
         {
             pm.returnToLastZdepth();
             pm.setAllowIinput(true);
@@ -76,8 +74,8 @@ public class PictureFrameBehaviour : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-        //Adjust speed by jumping
-        if (((Input.GetButtonDown("Jump")) || (Input.GetButtonDown("B"))) && (!hasSpedUp))
+        //Adjust speed by pressing B
+        if (Input.GetButtonDown("B"))
         {
             curTiling -= (addTiling * curSpeed) * spamSpeed;
             curOffset -= (addOffset * curSpeed) * spamSpeed;
@@ -88,17 +86,12 @@ public class PictureFrameBehaviour : MonoBehaviour {
                 curOffset = origOffset;
             }
 
-            hasSpedUp = true;
         }
-        if ((Input.GetButtonDown("Jump")) || (Input.GetButtonDown("B")))
+
+        //Cancel by pressing Jump
+        if (Input.GetButtonDown("Jump"))
         {
-            hasSpedUp = false;
 
-            //Calculate speed
-            curSpeed = Mathf.Lerp(curSpeed, endSpeed, speedDecrease * Time.deltaTime);
-
-            //Adjust endSpeed
-            endSpeed = Mathf.Lerp(endSpeed, (normEndSpeed), (Time.deltaTime * speedDecrease));
         }
 
     }
