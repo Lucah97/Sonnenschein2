@@ -785,21 +785,6 @@ Prefab:
       propertyPath: m_Name
       value: CustomDoor_Systhem
       objectReference: {fileID: 0}
-    - target: {fileID: 114406383064582392, guid: e73481712d1fde04ea497735bcbb8194,
-        type: 2}
-      propertyPath: customscene
-      value: TheSysthem
-      objectReference: {fileID: 0}
-    - target: {fileID: 224380604170097018, guid: e73481712d1fde04ea497735bcbb8194,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114532458277740896, guid: e73481712d1fde04ea497735bcbb8194,
-        type: 2}
-      propertyPath: m_Text
-      value: THE SYSTEM
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
   m_IsPrefabAsset: 0
@@ -16071,6 +16056,16 @@ Prefab:
       propertyPath: SceneSaver
       value: 
       objectReference: {fileID: 1726930703}
+    - target: {fileID: 114406383064582392, guid: e73481712d1fde04ea497735bcbb8194,
+        type: 2}
+      propertyPath: customscene
+      value: GoogleSearch
+      objectReference: {fileID: 0}
+    - target: {fileID: 114532458277740896, guid: e73481712d1fde04ea497735bcbb8194,
+        type: 2}
+      propertyPath: m_Text
+      value: THE WAY
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73481712d1fde04ea497735bcbb8194, type: 2}
   m_IsPrefabAsset: 0
