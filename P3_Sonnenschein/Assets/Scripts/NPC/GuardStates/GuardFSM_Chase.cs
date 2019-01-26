@@ -15,7 +15,10 @@ public class GuardFSM_Chase : NPC_Base {
         base.OnStateEnter(animator, stateInfo, layerIndex);
         setValues(0.55f, 7f, Color.red);
 
-        npc = animator.gameObject;
+        //Alerted animation
+        npcAnim.SetBool("alerted", true);
+        npcAnim.SetBool("stopWalking", false);
+        npcAnim.SetBool("Walking", true);
 
         //Spawn Symbol
         StateSymbolSpawner spawner = animator.gameObject.GetComponent<StateSymbolSpawner>();
@@ -32,7 +35,7 @@ public class GuardFSM_Chase : NPC_Base {
             Vector3[] zPoints = new Vector3[2];
             zPoints[0] = Vector3.zero;
             zPoints[1] = Vector3.zero;
-            npc.transform.GetChild(0).GetComponent<LineRenderer>().SetPositions(zPoints);
+            npc.transform.GetChild(1).GetComponent<LineRenderer>().SetPositions(zPoints);
         }
         else
         {

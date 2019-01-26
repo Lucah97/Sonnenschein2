@@ -8,9 +8,13 @@ public class GuardFSM_Suspicious : NPC_Base {
     private Vector3[] susPoints;
     private int curSpot;
     private StateSymbolSpawner spawner;
+    private bool beginWait = false;
+    private float elapsedWaitTime = 0f;
+    
 
     public float accuracy = 2f;
     public float distanceCutOff = 0.3f;
+    public float waitBeforeTurn = 1f;
 
     private void Awake()
     {
@@ -26,7 +30,11 @@ public class GuardFSM_Suspicious : NPC_Base {
         spawner = animator.gameObject.GetComponent<StateSymbolSpawner>();
         spawner.spawnSymbol(0);
 
-        npc = animator.gameObject;
+        //Alerted animation
+        npcAnim.Play("Alerted");
+        npcAnim.SetBool("alerted", true);
+        npcAnim.SetBool("stopWalking", false);
+        npcAnim.SetBool("Walking", true);
 
         //Creating suspicious points
         susPoints = new Vector3[Random.Range(5, 8)];
@@ -44,23 +52,47 @@ public class GuardFSM_Suspicious : NPC_Base {
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (susPoints.Length == 0) return;
-        if (Vector3.Distance(susPoints[curSpot], npc.transform.position) < distanceCutOff)
-        {
-            curSpot++;
-            Debug.Log(curSpot);
-            if (curSpot >= susPoints.Length-1)
-            {
-                animator.SetBool("hasSearched", true);
-            }
-            else
-            {
-                spawner.spawnSymbol(0);
-            }
-        }
 
-        if (curSpot < susPoints.Length)
+        if (!beginWait)
         {
-            npc.GetComponent<NavMeshAgent>().SetDestination(susPoints[curSpot]);
+            if (Vector3.Distance(susPoints[curSpot], npc.transform.position) < distanceCutOff)
+            {
+                beginWait = true;
+                //Play stop animation
+                npcAnim.SetBool("stopWalk", true);
+                npcAnim.SetBool("Walking", false);
+            }                               
+        }
+        else
+        {
+            elapsedWaitTime += Time.deltaTime;
+            if (elapsedWaitTime > waitBeforeTurn)
+            {
+                curSpot++;
+
+                elapsedWaitTime = 0f;
+                beginWait = false;
+
+                //Play walking animation
+                npcAnim.Play("StartWalk");
+                npcAnim.SetBool("stopWalk", false);
+                npcAnim.SetBool("Walking", true);
+
+                if (curSpot >= susPoints.Length-1)
+                {
+
+                    animator.SetBool("hasSearched", true);
+                }
+                else
+                {
+                    spawner.spawnSymbol(0);
+                }
+
+                if (curSpot < susPoints.Length)
+                {
+                    npc.GetComponent<NavMeshAgent>().SetDestination(susPoints[curSpot]);
+                }
+            }
         }
     }
 

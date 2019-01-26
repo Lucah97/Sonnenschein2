@@ -43,6 +43,7 @@ public class VisionConeDetection : MonoBehaviour
         }
         else
         {
+            detectionProgress = 0f;
             setAnimatorDistance(null);
         }
     }

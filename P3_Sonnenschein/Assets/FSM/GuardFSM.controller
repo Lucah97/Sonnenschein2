@@ -92,6 +92,7 @@ MonoBehaviour:
   rotationSpeed: 550
   accuracy: 4
   distanceCutOff: 0.3
+  waitBeforeTurn: 2.1
 --- !u!114 &114737152971882426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,12 +221,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: ConeDistance
-    m_EventTreshold: 2
   - m_ConditionMode: 4
     m_ConditionEvent: ConeDistance
-    m_EventTreshold: 99
+    m_EventTreshold: 0.75
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102697397926121238}
   m_Solo: 0
@@ -271,12 +269,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: ConeDistance
-    m_EventTreshold: 2.3
   - m_ConditionMode: 4
     m_ConditionEvent: ConeDistance
-    m_EventTreshold: 99
+    m_EventTreshold: 0.75
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102697397926121238}
   m_Solo: 0
