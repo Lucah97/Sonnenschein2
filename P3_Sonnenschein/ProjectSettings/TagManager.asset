@@ -11,6 +11,7 @@ TagManager:
   - CamZone
   - deinemama
   - Enemy
+  - Weed
   layers:
   - Default
   - TransparentFX
