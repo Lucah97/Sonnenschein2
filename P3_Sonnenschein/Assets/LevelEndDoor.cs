@@ -52,23 +52,15 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("PotatoNarnia");
         if (other.tag == "Player")
         {
-
-            Debug.Log("Narnia1");
             if (LoadCustomScene || Returning)
             {
-                Debug.Log("Narnia2");
-                if (Input.GetButtonDown("Jump") || IsTrigger)
+                if (Input.GetButtonDown("RT") || IsTrigger)
                 {
                     if (!ReturnDoor)
                     {
-                        Debug.Log("Narnia3");
                         LastPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-
-                        
-
                         string Scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
                         SceneSaver.GetComponent<OldScene>().LastScene = Scene;

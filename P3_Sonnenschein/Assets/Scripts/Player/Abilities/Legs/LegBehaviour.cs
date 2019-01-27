@@ -83,7 +83,7 @@ public class LegBehaviour : MonoBehaviour {
     //Hit Enemy
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") && (!leadingEnemy))
+        if (other.CompareTag("VisionCone") && (!leadingEnemy))
         {
             leadingEnemy = true;
             movementSpeed *= speedMultAfterLeadingEnemy;

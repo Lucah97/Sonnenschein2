@@ -12,6 +12,7 @@ TagManager:
   - deinemama
   - Enemy
   - Weed
+  - VisionCone
   layers:
   - Default
   - TransparentFX
