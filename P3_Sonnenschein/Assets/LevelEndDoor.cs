@@ -105,7 +105,7 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
     {
         if (LoadCustomScene && (other.tag == "Player"))
         {
-            curMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.RT, "Enter", GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+            curMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.A, "Enter", GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
         }
         if ((isOpen) && (other.tag == "Player"))
         {
