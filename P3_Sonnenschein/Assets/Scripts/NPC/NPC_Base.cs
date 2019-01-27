@@ -6,9 +6,11 @@ using UnityEngine;
 public class NPC_Base : StateMachineBehaviour
 {
     public GameObject followObj;
+    public VisionConeDetection vcd;
     public GameObject npc;
     public Animator npcAnim;
     public GameObject chaseObj;
+    
 
     public float movementSpeed;
     public float rotationSpeed;
@@ -21,7 +23,8 @@ public class NPC_Base : StateMachineBehaviour
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        followObj = animator.transform.GetChild(1).GetComponent<VisionConeDetection>().getFollowObj().gameObject;
+        vcd = animator.transform.GetChild(1).GetComponent<VisionConeDetection>();
+        followObj = vcd.getFollowObj();
 
         npc = animator.gameObject;
         npcAnim = npc.transform.GetChild(0).GetComponent<Animator>();
@@ -30,7 +33,7 @@ public class NPC_Base : StateMachineBehaviour
         npc.GetComponent<NavMeshAgent>().speed = movementSpeed;
         npc.GetComponent<NavMeshAgent>().angularSpeed = rotationSpeed;
 
-
+        animator.SetBool("objDestroyed", false);
         animator.SetBool("hasSearched", false);
     }
 
@@ -39,6 +42,6 @@ public class NPC_Base : StateMachineBehaviour
     {
         //movementSpeed = n_Vmov;
         //rotationSpeed = n_Vrot;
-        npc.GetComponent<Renderer>().material.color = n_Color;
+        //npc.GetComponent<Renderer>().material.color = n_Color;
     }
 }

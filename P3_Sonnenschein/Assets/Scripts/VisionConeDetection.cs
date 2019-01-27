@@ -3,154 +3,194 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(LineRenderer))]
 
 public class VisionConeDetection : MonoBehaviour
 {
-    private Transform followObj = null;
-    private Transform legs = null;
-    private Transform originPoint;
-    private LineRenderer lineRen;
-
-    private float detectionProgress = 0f;
-    private Vector3[] lastPoints;
+    [Header("Cone Properties")]
+    [Range(-100f, 100f)]
+    public float coneScale = 0f;
+    [Range(-100f, 100f)]
+    public float coneLength = 0f;
+    public Vector2 tilingClamp;
+    public Texture2D SuspiciousFill;
+    public Texture2D ChaseFill;
 
     [Header("Detection Properties")]
-    [Range(0f, 100f)]
+    public bool resetProgressOnLeave = false;
+    [Range(0f, 50f)]
     public float detectionSpeed = 1f;
+    public float detectionDecreaseSpeed = 0.7f;
+    public Vector2 detectionClamp;
+    public string[] acceptedTags;
+    public float[] tagSpecificSpeed;
 
-    [Header("Line Properties")]
-    public float lineWidth = 0.2f;
-    public Color lineColor = Color.red;
+    private GameObject colObj = null;
+    private GameObject followObj = null;
+
+    private Transform legs = null;
+    private Transform originPoint;
+    private GameObject player;
+
+    private float detectionProgress = 0f;
 
     //### Built-In Functions ###
-    void Start()
+    private void Start()
     {
         originPoint = transform.GetChild(0);
-        lineRen = GetComponent<LineRenderer>();
-        setupLineRenderer(ref lineRen);
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        setConeDimensions(coneScale, coneLength);
     }
 
-    void FixedUpdate()
+    private void LateUpdate()
     {
-        if (followObj != null)
-        {
-            detectionProgress += (detectionSpeed * Time.deltaTime);
-            detectionProgress = Mathf.Clamp(detectionProgress, 0f, 100f);
+        Debug.Log(detectionProgress);
+        detectionProgress = Mathf.Clamp(detectionProgress, detectionClamp.x, detectionClamp.y);
 
-            setLinePoints(ref lineRen);
-            setAnimatorDistance(lastPoints);
-        }
-        else
+        //Apply current detection progress to the material
+        applyVisualProgress(detectionProgress);
+
+        //Decrease progress
+        if ((!colObj) && (!resetProgressOnLeave))
         {
-            detectionProgress = 0f;
-            setAnimatorDistance(null);
+            detectionProgress = Mathf.Lerp(detectionProgress, 0f, Time.deltaTime * detectionDecreaseSpeed);
         }
+
+        //Pass the current detection Progress into the animator
+        setAnimatorDistance(detectionProgress);
     }
 
-    void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider other)
     {
-        if ((col.gameObject.tag == "Player"))
+        if (acceptedTagsContain(other.tag))
         {
-            if (!col.GetComponent<PlayerAbilities>().isHidden())
+            PlayerAbilities pa = other.GetComponent<PlayerAbilities>() ?? null;
+            if ( ((pa) && (!pa.isHidden())) || (!pa) )
             {
-                followObj = col.gameObject.transform;
-
-                detectionProgress = 0f;
-                setLinePoints(ref lineRen);
-                lineRen.enabled = true;
+                colObj = other.gameObject;
+                followObj = other.gameObject;
+                resetDetectionProgress();
             }
         }
+    }
 
-        if ((col.gameObject.tag == "Legs"))
+    private void OnTriggerStay(Collider other)
+    {
+        if ((acceptedTagsContain(other.tag)) && (colObj != null))
         {
-            followObj = col.gameObject.transform;
-
-            detectionProgress = 0f;
-            setLinePoints(ref lineRen);
-            lineRen.enabled = true;
+            detectionProgress += ((detectionSpeed * Time.deltaTime) * getTagSpecificSpeed(other.tag));
+            detectionProgress = Mathf.Clamp(detectionProgress, 0f, 100f);
         }
     }
 
-
-    void OnTriggerExit(Collider col)
+    private void OnTriggerExit(Collider other)
     {
-        if ((col.gameObject.tag == "Player") || (col.gameObject.tag == "Legs"))
-        {    
-            lineRen.enabled = false;
-            //followObj = null;
+        if (acceptedTagsContain(other.tag))
+        {
+            colObj = null;
+            resetDetectionProgress();
+
+            applyVisualProgress(detectionProgress);
         }
     }
 
     //### Custom Functions ###
-    private void setupLineRenderer(ref LineRenderer l)
-    {
-        //Line Width
-        l.startWidth = lineWidth;
-        l.endWidth = lineWidth;
 
-        //Line Material
-        Material lineMat = new Material(Shader.Find("Unlit/Color"));
-        lineMat.color = lineColor;
-        l.material = lineMat;
+    public GameObject getColObj()
+    {
+        return ((colObj != null) ? colObj : new GameObject());
     }
 
-    private void setLinePoints(ref LineRenderer l)
+    public GameObject getFollowObj()
     {
-        Vector3[] linePoints = new Vector3[2];
-        linePoints[0] = originPoint.position;
-        linePoints[1] = GetComponent<Collider>().ClosestPoint(followObj.transform.position);
-
-        //Progress Vector
-        Vector3 dir = (linePoints[0] - linePoints[1]).normalized;
-        float dist = Vector3.Distance(linePoints[0], linePoints[1]);
-        linePoints[0] = linePoints[1] + (dir * (dist * (detectionProgress / 100f)));
-
-        l.SetPositions(linePoints);
-
-        //Save last points
-        lastPoints = linePoints;
+        return ((followObj != null) ? followObj : new GameObject());
     }
 
-    private void setAnimatorDistance(Vector3[] points)
+    public void startFillColor(Color nColor)
+    {
+        StartCoroutine(fillFullColor(nColor));
+    }
+
+    private IEnumerator fillFullColor(Color nColor)
+    {
+        nColor.a = 32;
+        Material curMat = GetComponent<Renderer>().material;
+        curMat.SetColor("_TintColor", nColor);
+
+        yield return new WaitForSeconds(0.3f);
+    }
+
+    private void setConeDimensions(float addScale, float addLength)
+    {
+        Vector3 curDimensions = transform.localScale;
+        curDimensions.x += addScale;
+        curDimensions.y += addLength;
+        curDimensions.z += addScale;
+
+        transform.localScale = curDimensions;
+    }
+
+    private void applyVisualProgress(float progress)
+    {
+        //Get material
+        Material curMat = GetComponent<Renderer>().material;
+
+        //Assign texture based on NPC State
+        curMat.SetTexture("_MainTex", (getAnimatorState() == "Chase") ? ChaseFill : SuspiciousFill);
+        curMat.SetColor("_TintColor", new Color(255, 255, 255, 0.0005f));
+
+        float visOffset = -((progress / detectionClamp.y) * Mathf.Abs(tilingClamp.x));
+        visOffset = Mathf.Clamp(visOffset, tilingClamp.x, tilingClamp.y);
+        
+        curMat.SetTextureOffset("_MainTex", new Vector2(visOffset, 0));
+    }
+
+    private string getAnimatorState()
+    {
+        AnimatorStateInfo curState = transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        
+        if (curState.IsName("Chase"))
+        {
+            return "Chase";
+        }
+        if (curState.IsName("Suspicious") || curState.IsName("Patrol"))
+        {
+            return "Suspicious";
+        }
+        return "";
+    }
+
+    private void setAnimatorDistance(float curDist)
     {
         Animator anim = transform.parent.GetComponent<Animator>();
-        //Debug.Log(anim.gameObject.name);
-        if (points != null)
+
+        anim.SetFloat("ConeDistance", curDist);
+    }
+
+    private bool acceptedTagsContain(string nTag)
+    {
+        foreach (string s in acceptedTags)
         {
-            float mult = 1f;
-            if (followObj.CompareTag("Legs"))
+            if (s == nTag) { return true; }
+        }
+        return false;
+    }
+
+    private float getTagSpecificSpeed(string nTag)
+    {
+        for (int i=0; i<acceptedTags.Length; i++)
+        {
+            if (acceptedTags[i] == nTag)
             {
-                mult = 3f;
+                return tagSpecificSpeed[i];
             }
-            anim.SetFloat("ConeDistance", Vector3.Distance(points[0], points[1]) * mult);
-            anim.SetInteger("chaseID", followObj.GetInstanceID());
         }
-        else
-        {
-            anim.SetFloat("ConeDistance", 99f);
-        }
+        return 1f;
     }
 
-    public Transform getFollowObj()
+    private void resetDetectionProgress()
     {
-        if (followObj != null)
-        {
-            Debug.Log("First one");
-            return followObj;
-        }
-        else
-        {
-            Debug.Log("Second one");
-            return GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        
+        detectionProgress = (resetProgressOnLeave ? 0f : detectionProgress);
     }
 
-    public void folInfo()
-    {
-        try { Debug.Log(followObj.name); }
-        catch { Debug.Log("NONE"); }
-        
-    }
 }

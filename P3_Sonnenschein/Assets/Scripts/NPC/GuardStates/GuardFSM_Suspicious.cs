@@ -36,6 +36,9 @@ public class GuardFSM_Suspicious : NPC_Base {
         npcAnim.SetBool("stopWalking", false);
         npcAnim.SetBool("Walking", true);
 
+        //Vision Cone Flash Color
+        vcd.startFillColor(Color.yellow);
+
         //Creating suspicious points
         susPoints = new Vector3[Random.Range(5, 8)];
         for (int i=0; i<susPoints.Length; i++)
@@ -59,7 +62,6 @@ public class GuardFSM_Suspicious : NPC_Base {
             {
                 beginWait = true;
                 //Play stop animation
-                npcAnim.SetBool("stopWalk", true);
                 npcAnim.SetBool("Walking", false);
             }                               
         }
@@ -75,7 +77,6 @@ public class GuardFSM_Suspicious : NPC_Base {
 
                 //Play walking animation
                 npcAnim.Play("StartWalk");
-                npcAnim.SetBool("stopWalk", false);
                 npcAnim.SetBool("Walking", true);
 
                 if (curSpot >= susPoints.Length-1)

@@ -87,12 +87,5 @@ public class PictureFrameBehaviour : MonoBehaviour {
             }
 
         }
-
-        //Cancel by pressing Jump
-        if (Input.GetButtonDown("Jump"))
-        {
-
-        }
-
     }
 }
