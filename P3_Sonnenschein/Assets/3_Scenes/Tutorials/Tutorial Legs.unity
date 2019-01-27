@@ -684,6 +684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c985bb610b1fa354489be16457d301b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typ: 0
+  displayButton: 2
+  displayText: Spawn Legs
 --- !u!1 &565936944 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1779151189426694, guid: e68597d92af5ea146a0de0d615e5fd6c,

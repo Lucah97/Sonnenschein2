@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ExplainLegsUI : MonoBehaviour {
 
+    public UI_Types typ;
+    public Ctrl_Buttons displayButton;
+    public string displayText;
 
     private GameObject currMessage;
 
@@ -13,7 +16,7 @@ public class ExplainLegsUI : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            currMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.X, "Spawn Legs", GameObject.Find("Player"), new Vector3(0, 2, 0));
+            currMessage = UI_Spawner.instance.spawn(typ, displayButton, displayText, GameObject.Find("Player"), new Vector3(0, 2, 0));
         }
     }
 
