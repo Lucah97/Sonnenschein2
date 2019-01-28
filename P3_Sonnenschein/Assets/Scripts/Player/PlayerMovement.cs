@@ -37,12 +37,14 @@ public class PlayerMovement : MonoBehaviour {
     private float velX = 0;
     private bool hasJumped = false;
     private Rigidbody rb;
+    private Animator playerAnim;
 
     //### Built-In Functions ###
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         zDepth = transform.position.z;
+        playerAnim = transform.GetChild(0).GetComponent<Animator>();
 
         //Setup Layer Collision
         Physics.IgnoreLayerCollision(8, 9, true);
@@ -51,6 +53,9 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        //Debug.Log("Internat Vel: " + velX);
+        //Debug.Log("Rigidbody Vel: " + rb.velocity.x);
+
         if (allowInput)
         {
             processInput();
@@ -124,12 +129,16 @@ public class PlayerMovement : MonoBehaviour {
     private void setAnimations()
     {
         //Rotate Character
-        Transform visChar = transform.GetChild(0);
+        Transform visChar = playerAnim.transform;
         int dir = Mathf.Clamp((int)getPlayerDirection().x, -1, 1);
         Vector3 eulerChar = Vector3.zero;
         eulerChar.y = -dir * 90;
 
         visChar.rotation = Quaternion.Slerp(visChar.rotation, Quaternion.Euler(eulerChar), Time.deltaTime * rotationTime);
+
+        //Set animator values
+        playerAnim.SetFloat("horSpeed", Mathf.Abs(rb.velocity.x));
+        playerAnim.SetBool("isGrounded", isGrounded(true));
     }
 
     private bool hitWall(int divAmount)
