@@ -44,7 +44,6 @@ public class VisionConeDetection : MonoBehaviour
 
     private void LateUpdate()
     {
-        Debug.Log(detectionProgress);
         detectionProgress = Mathf.Clamp(detectionProgress, detectionClamp.x, detectionClamp.y);
 
         //Apply current detection progress to the material
