@@ -59,8 +59,10 @@ public class PlayerMovement : MonoBehaviour {
         if (allowInput)
         {
             processInput();
-            setAnimations();
         }
+
+        //Setup animator variables
+        setAnimations();
 
         //Check for wall collision
         if (hitWall(collisionCheckDensity))

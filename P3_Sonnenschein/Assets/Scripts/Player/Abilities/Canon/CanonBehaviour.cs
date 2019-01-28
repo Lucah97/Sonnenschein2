@@ -84,7 +84,7 @@ public class CanonBehaviour : MonoBehaviour {
             //Disable Rigidbody
             pm.GetComponent<Rigidbody>().detectCollisions = true;
             //Disable Rendering
-            pm.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
+            pm.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
 
             transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", true);
             hasShot = true;

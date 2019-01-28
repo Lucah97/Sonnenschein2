@@ -207,7 +207,7 @@ public class PlayerAbilities : MonoBehaviour {
             //Disable Rigidbody
             GetComponent<Rigidbody>().detectCollisions = false;
             //Disable Rendering
-            transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
+            transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
 
             //Spawn Cloud effect
             FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
