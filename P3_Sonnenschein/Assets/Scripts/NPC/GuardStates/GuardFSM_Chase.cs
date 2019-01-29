@@ -19,7 +19,7 @@ public class GuardFSM_Chase : NPC_Base {
 
         //Alerted animation
         npcAnim.SetBool("alerted", true);
-        npcAnim.SetBool("stopWalking", false);
+        npcAnim.SetBool("stopWalk", false);
         npcAnim.SetBool("Walking", true);
 
         //Spawn Symbol

@@ -78,13 +78,14 @@ public class CanonBehaviour : MonoBehaviour {
             //Setup Player after shooting
             pm.enabled = true;
             pm.setAllowIinput(false);
-            pm.setCanonMode(true);
             pm.setVelocity(model.transform.up * (strength * velocityMult));
             pm.transform.parent = null;
-            //Disable Rigidbody
+            //Enable Rigidbody / Collider
             pm.GetComponent<Rigidbody>().detectCollisions = true;
-            //Disable Rendering
+            pm.setCanonMode(true);
+            //Enable Rendering
             pm.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
+            pm.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
 
             transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", true);
             hasShot = true;
@@ -94,6 +95,13 @@ public class CanonBehaviour : MonoBehaviour {
                                         shootSmokeSpot.position,
                                         Quaternion.Euler(new Vector3(-90, 0, 0)),
                                         0.85f);
+            //Spawn Trail effect
+            GameObject trail = 
+            FX_Spawner.instance.spawnFX(en_EffectType.Trail,
+                            pm.transform.position,
+                            Quaternion.Euler(pm.transform.up),
+                            0.85f);
+            trail.transform.parent = pm.transform;
         }
     }
 

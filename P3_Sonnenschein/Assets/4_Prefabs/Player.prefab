@@ -11631,6 +11631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4526033004309978}
   - component: {fileID: 136573764241531932}
+  - component: {fileID: 135529914859814298}
   - component: {fileID: 54027830576766296}
   - component: {fileID: 114898837548503048}
   - component: {fileID: 114212618747754160}
@@ -21205,7 +21206,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805771431458714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -3.03, z: -0.18}
+  m_LocalPosition: {x: 7, y: -3.197, z: -0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4836783613087742}
@@ -25267,7 +25268,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788287920462634}
   m_LocalRotation: {x: -0, y: 0.728322, z: -0, w: 0.6852351}
-  m_LocalPosition: {x: 0, y: -1.0256749, z: -0.0012006313}
+  m_LocalPosition: {x: 0, y: -0.981, z: -0.0012006313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4025745035065228}
@@ -27185,13 +27186,25 @@ MonoBehaviour:
   jumpForce: 525
   zDepth: -0.00016242557
   zDepthAdjustSpeed: 4.5
-  rotationTime: 10
+  rotationTime: 12.5
   slopeAngle: 60
   collisionCheckDensity: 9
   speedStepCheck: 0.25
   stepCheckOffset: 0.025
   stepHeight: 0.5
   collisionOffset: {x: 0.1, y: 0.01}
+--- !u!135 &135529914859814298
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805771431458714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.9
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136573764241531932
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -27201,7 +27214,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: ac30228fa1ff64a4a8cd967d95a5d0e8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.32
+  m_Radius: 0.29
   m_Height: 1.94
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

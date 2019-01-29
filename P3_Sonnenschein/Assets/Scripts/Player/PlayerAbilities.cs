@@ -204,10 +204,12 @@ public class PlayerAbilities : MonoBehaviour {
             transform.parent = nCanon.transform.GetChild(0).GetChild(0).transform;
             GetComponent<PlayerMovement>().freezeVelocity();
             GetComponent<PlayerMovement>().enabled = false;
-            //Disable Rigidbody
+            //Disable Rigidbody and Colliders
             GetComponent<Rigidbody>().detectCollisions = false;
+            GetComponent<PlayerMovement>().setColliderActive(false);
             //Disable Rendering
             transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
+            transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
 
             //Spawn Cloud effect
             FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,

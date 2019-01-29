@@ -53,9 +53,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        //Debug.Log("Internat Vel: " + velX);
-        //Debug.Log("Rigidbody Vel: " + rb.velocity.x);
-
         if (allowInput)
         {
             processInput();
@@ -75,6 +72,7 @@ public class PlayerMovement : MonoBehaviour {
         if (canonMode)
         {
             transform.up = (rb.velocity).normalized;
+            transform.GetChild(0).up = (rb.velocity).normalized;
         }
 
         //Add Gravity
@@ -93,12 +91,17 @@ public class PlayerMovement : MonoBehaviour {
     {
         if ((collision.collider.CompareTag("Solid")) && (canonMode))
         {
-            canonMode = false;
+            setCanonMode(false);
             transform.up = Vector3.up;
             transform.rotation = Quaternion.Euler(Vector3.zero);
             velX = rb.velocity.x;
             freezeVelocity();
             setAllowIinput(true);
+            //Stop trail particle system
+            foreach (ParticleSystem ps in GetComponentsInChildren<ParticleSystem>())
+            {
+                ps.Stop();
+            }
 
             CameraMovement.instance.setOverridePosition(false, Vector3.zero);
         }
@@ -271,6 +274,7 @@ public class PlayerMovement : MonoBehaviour {
         return hasFoundGround;
     }
 
+
     //### Setter / Getter ###
     public float getJumpDistance()
     {
@@ -336,6 +340,19 @@ public class PlayerMovement : MonoBehaviour {
     public void setCanonMode (bool c)
     {
         canonMode = c;
+        setCanonCollider(c);
+    }
+
+    public void setCanonCollider(bool mode)
+    {
+        GetComponent<CapsuleCollider>().enabled = !mode;
+        GetComponent<SphereCollider>().enabled = mode;
+    }
+
+    public void setColliderActive(bool setting)
+    {
+        GetComponent<CapsuleCollider>().enabled = setting;
+        GetComponent<SphereCollider>().enabled = setting;
     }
 
     public void returnToLastZdepth()

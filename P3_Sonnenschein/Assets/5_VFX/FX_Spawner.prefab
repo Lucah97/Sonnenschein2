@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4098493088922032}
-  - component: {fileID: 114202922784090218}
+  - component: {fileID: 114521473164907480}
   m_Layer: 0
   m_Name: FX_Spawner
   m_TagString: Untagged
@@ -34,13 +34,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960465102003118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.58, y: -5.13, z: 1.77}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2446575, y: 1.244658, z: 1.244658}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114202922784090218
+--- !u!114 &114521473164907480
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,4 +54,4 @@ MonoBehaviour:
   effectObjects:
   - {fileID: 1716046471171472, guid: 63889f006f5a0874eb9122aca710b1e6, type: 2}
   - {fileID: 1235530044751048, guid: 617af39d6492f1e45a8da90b67219bb9, type: 2}
-  - {fileID: 1235530044751048, guid: 617af39d6492f1e45a8da90b67219bb9, type: 2}
+  - {fileID: 1170108824143858, guid: 8b4633c74a2a34f4584d09458fd62617, type: 2}

@@ -8,8 +8,12 @@ public class CanonTrajectory : MonoBehaviour {
     [Header("Trajectory Contruction")]
     public int segAmount = 25;
     public float segScale = 1f;
+    [Range(-10, 10)]
+    public float adjustStrength = 0f;
+    [HideInInspector]
     public float strength = 5f;
     public float gravityMult = 1f;
+    public string[] ignoreTags;
 
     [Header("Appearance")]
     public Color startColor;
@@ -31,7 +35,7 @@ public class CanonTrajectory : MonoBehaviour {
 
         Vector3[] seg = new Vector3[segAmount+1];
         seg[0] = transform.position;
-        Vector3 segVel = model.transform.up * strength;
+        Vector3 segVel = model.transform.up * getStrength();
         hitObj = null;
         collisionIndex = segAmount;
 
@@ -45,7 +49,7 @@ public class CanonTrajectory : MonoBehaviour {
              RaycastHit hit;
             if (Physics.Raycast(seg[i-1], segVel, out hit, segScale*1.5f))
             {
-                if (!hit.collider.CompareTag("Player") && !hit.collider.CompareTag("CamZone"))
+                if (!checkIgnoreTags(hit.collider.tag))
                 {
                     hitObj = hit.collider;
 
@@ -87,5 +91,19 @@ public class CanonTrajectory : MonoBehaviour {
 
         //Override CameraPosition
         CameraMovement.instance.setOverridePosition(true, seg[collisionIndex]);
+    }
+
+    private float getStrength()
+    {
+        return (strength + adjustStrength);
+    }
+
+    private bool checkIgnoreTags(string cur)
+    {
+        foreach (string s in ignoreTags)
+        {
+            if (cur == s) { return true; }
+        }
+        return false;
     }
 }

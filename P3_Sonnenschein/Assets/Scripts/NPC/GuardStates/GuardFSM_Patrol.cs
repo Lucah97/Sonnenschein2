@@ -25,7 +25,7 @@ public class GuardFSM_Patrol : NPC_Base {
 
         animator.SetBool("objDestroyed", false);
 
-        if (patrolSpots.Length <= 1)
+        if (patrolSpots.Length < 1)
         {
             npcAnim.Play("Nothing");
         }
@@ -36,7 +36,8 @@ public class GuardFSM_Patrol : NPC_Base {
     }
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        if (patrolSpots.Length <= 1)
+
+        if (patrolSpots.Length == 0)
         {
             elapsedWaitTime += Time.deltaTime;
             if (elapsedWaitTime > waitBeforeTurn)
@@ -48,39 +49,63 @@ public class GuardFSM_Patrol : NPC_Base {
         }
         else
         {
-            patrolSpots = animator.GetComponent<GimmeDemPatrolSpots>().patrolSpots;
-
-            if (!beginWait)
+            if (patrolSpots.Length == 1)
             {
-                if (Vector3.Distance(patrolSpots[curSpot].transform.position, npc.transform.position) < distanceCutOff)
+                if (Vector3.Distance(patrolSpots[0].transform.position, npc.transform.position) < distanceCutOff)
                 {
-                    beginWait = true;
-                    //Play stop animation
-                    npcAnim.SetBool("stopWalk", true);
-                    npcAnim.SetBool("Walking", false);
+                    elapsedWaitTime += Time.deltaTime;
+                    if (elapsedWaitTime > waitBeforeTurn)
+                    {
+                        elapsedWaitTime = 0f;
+                        npcAnim.Play("Nothing");
+                        npcAnim.SetBool("Walking", false);
+                        npcAnim.SetBool("stopWalk", true);
+                        npcAnim.SetInteger("Idle", Random.Range(0, 3));
+                    }
+                }
+                else
+                {
+                    npcAnim.SetBool("Walking", true);
+                    npc.GetComponent<NavMeshAgent>().SetDestination(patrolSpots[0].transform.position);
+                    elapsedWaitTime = 0f;
                 }
             }
             else
             {
-                elapsedWaitTime += Time.deltaTime;
-                if (elapsedWaitTime > waitBeforeTurn)
+                //patrolSpots = animator.GetComponent<GimmeDemPatrolSpots>().patrolSpots;
+
+                if (!beginWait)
                 {
-                    curSpot++;
-                    if (curSpot >= patrolSpots.Length)
+                    if (Vector3.Distance(patrolSpots[curSpot].transform.position, npc.transform.position) < distanceCutOff)
                     {
-                        curSpot = 0;
+                        beginWait = true;
+                        //Play stop animation
+                        npcAnim.SetBool("stopWalk", true);
+                        npcAnim.SetBool("Walking", false);
                     }
-
-                    elapsedWaitTime = 0f;
-                    beginWait = false;
-
-                    //Play walking animation
-                    npcAnim.SetBool("stopWalk", false);
-                    npcAnim.SetBool("Walking", true);
                 }
-            }
+                else
+                {
+                    elapsedWaitTime += Time.deltaTime;
+                    if (elapsedWaitTime > waitBeforeTurn)
+                    {
+                        curSpot++;
+                        if (curSpot >= patrolSpots.Length)
+                        {
+                            curSpot = 0;
+                        }
 
-            npc.GetComponent<NavMeshAgent>().SetDestination(patrolSpots[curSpot].transform.position);
+                        elapsedWaitTime = 0f;
+                        beginWait = false;
+
+                        //Play walking animation
+                        npcAnim.SetBool("stopWalk", false);
+                        npcAnim.SetBool("Walking", true);
+                    }
+                }
+
+                npc.GetComponent<NavMeshAgent>().SetDestination(patrolSpots[curSpot].transform.position);
+            }
         }
     }
 

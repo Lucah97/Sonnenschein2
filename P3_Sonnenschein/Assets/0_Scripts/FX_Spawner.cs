@@ -38,5 +38,5 @@ public enum en_EffectType
 {
     Fireworks,
     SmokeCloud,
-    OtherStuff
+    Trail
 };

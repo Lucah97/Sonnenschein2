@@ -107,6 +107,7 @@ public class CameraMovement : MonoBehaviour {
     {
         Vector3 posOrigin = player.transform.position;
         Vector3 posTarget = lastOverridePosition;
+        if (posTarget == Vector3.zero) { return posOrigin; }
 
         Vector3 direction = (posTarget - posOrigin).normalized;
         float distance = (posTarget - posOrigin).magnitude;

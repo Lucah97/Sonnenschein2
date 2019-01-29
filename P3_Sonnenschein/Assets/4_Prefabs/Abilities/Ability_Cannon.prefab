@@ -2277,9 +2277,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   segAmount: 120
-  segScale: 0.5
+  segScale: 0.68
+  adjustStrength: 3.29
   strength: 14
   gravityMult: 1.18
+  ignoreTags:
+  - Player
+  - CamZone
+  - VisionCone
+  - Weed
+  - Legs
+  - Untagged
   startColor: {r: 0, g: 0.40163708, b: 1, a: 0}
   startTranslucency: 1
   endColor: {r: 1, g: 0.6698078, b: 0, a: 0}
