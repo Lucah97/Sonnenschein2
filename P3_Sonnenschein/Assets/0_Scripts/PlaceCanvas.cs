@@ -46,10 +46,11 @@ public class PlaceCanvas : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if ((curMessage != null) && (!isActivated))
+            if ((curMessage != null))
             {
                 GameObject.Destroy(curMessage);
                 curMessage = null;
+               
             }
         }
     }
