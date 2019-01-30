@@ -40,9 +40,17 @@ public class UI_Spawner : MonoBehaviour {
         UIobj.GetComponent<UI_Obj_Interface>().setImg(curButton);
         UIobj.GetComponent<UI_Obj_Interface>().setAnchorObject(anchor, offset);
 
-        //spawnedElements.Add(UIobj);
+        spawnedElements.Add(UIobj);
 
         return UIobj;
+    }
+
+    public void destroyAllElements()
+    {
+        foreach (GameObject e in spawnedElements)
+        {
+            if (e) { GameObject.Destroy(e); }
+        }
     }
 }
 

@@ -2278,7 +2278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segAmount: 120
   segScale: 0.68
-  adjustStrength: 3.29
+  adjustStrength: 3.33
   strength: 14
   gravityMult: 1.18
   ignoreTags:

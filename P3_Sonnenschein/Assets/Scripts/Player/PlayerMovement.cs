@@ -306,6 +306,11 @@ public class PlayerMovement : MonoBehaviour {
         return (stepCheckOffset * transform.localScale.y);
     }
 
+    public bool getCanonMode()
+    {
+        return canonMode;
+    }
+
     public Vector3 getPlayerDirection()
     {
         Vector3 direction = Vector3.zero;

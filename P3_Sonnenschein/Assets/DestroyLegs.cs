@@ -28,6 +28,9 @@ public class DestroyLegs : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Destroy UI Elements
+        UI_Spawner.instance.destroyAllElements();
+
         //Enable video
         Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         Camera.main.gameObject.transform.GetChild(0).GetComponent<VideoPlayer>().clip = loose;

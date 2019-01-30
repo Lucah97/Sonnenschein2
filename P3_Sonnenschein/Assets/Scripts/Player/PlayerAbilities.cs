@@ -210,6 +210,8 @@ public class PlayerAbilities : MonoBehaviour {
             //Disable Rendering
             transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
             transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
+            //Delete UI Messages
+            UI_Spawner.instance.destroyAllElements();
 
             //Spawn Cloud effect
             FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,

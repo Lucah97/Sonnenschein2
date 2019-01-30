@@ -56,37 +56,43 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
         {
             if (LoadCustomScene || Returning)
             {
-                if (Input.GetButtonDown("RT") || IsTrigger)
-                {
-                    if (!ReturnDoor)
+                if (!other.GetComponent<PlayerMovement>().getCanonMode())
+                { 
+                    if ((Input.GetAxis("RT") > 0) || IsTrigger)
                     {
-                        LastPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-                        string Scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+                        if (!ReturnDoor)
+                        {
+                            LastPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+                            string Scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
-                        SceneSaver.GetComponent<OldScene>().LastScene = Scene;
-                    }
+                            SceneSaver.GetComponent<OldScene>().LastScene = Scene;
+                        }
 
-                    PostProcessingProfile PPP = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+                        PostProcessingProfile PPP = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
 
-                    if (GameObject.FindGameObjectWithTag("Weed") != null)
-                    {
-                        foreach (GameObject Weeders in GameObject.FindGameObjectsWithTag("Weed")) { Weeders.GetComponent<Weed>().weedls = false; }
-                    }
+                        if (GameObject.FindGameObjectWithTag("Weed") != null)
+                        {
+                            foreach (GameObject Weeders in GameObject.FindGameObjectsWithTag("Weed")) { Weeders.GetComponent<Weed>().weedls = false; }
+                        }
 
-                    var curHue = PPP.colorGrading.settings;
+                        //Delete UI Elements
+                        UI_Spawner.instance.destroyAllElements();
 
-                    curHue.basic.hueShift = Mathf.Lerp(-180, 180, 0.5f);
-                    curHue.basic.saturation = 1f;
-                    PPP.colorGrading.settings = curHue;
+                        var curHue = PPP.colorGrading.settings;
 
-                    Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().CustomScene = customscene;
-                    Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().customload = true;
+                        curHue.basic.hueShift = Mathf.Lerp(-180, 180, 0.5f);
+                        curHue.basic.saturation = 1f;
+                        PPP.colorGrading.settings = curHue;
 
-                    Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+                        Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().CustomScene = customscene;
+                        Camera.main.gameObject.transform.GetChild(0).GetComponent<VidRestart>().customload = true;
 
-                    if (ReturnDoor)
-                    {
-                        Returning = true;
+                        Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+
+                        if (ReturnDoor)
+                        {
+                            Returning = true;
+                        }
                     }
                 }
             }
@@ -97,13 +103,13 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
     {
         if (LoadCustomScene && (other.tag == "Player"))
         {
-            curMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.A, "Enter", GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+            if (!other.GetComponent<PlayerMovement>().getCanonMode())
+            {
+                curMessage = UI_Spawner.instance.spawn(UI_Types.ButtonIndicator, Ctrl_Buttons.RT, "Enter", GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+            }
         }
         if ((isOpen) && (other.tag == "Player"))
         {
-
-            //Debug.Log("afafafafafa");
-
             //Enable video
             Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
             Camera.main.gameObject.transform.GetChild(0).GetComponent<VideoPlayer>().clip = end;
@@ -118,7 +124,7 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
     {
         if (LoadCustomScene && (other.tag == "Player"))
         {
-            Destroy(curMessage.gameObject);
+            if (curMessage) { Destroy(curMessage.gameObject); }
             curMessage = null;
         }
     }

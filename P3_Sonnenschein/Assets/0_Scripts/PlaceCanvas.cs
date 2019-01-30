@@ -13,31 +13,37 @@ public class PlaceCanvas : MonoBehaviour {
     public bool isActivated = false;
     private GameObject curMessage;
 
-    private void LateUpdate()
+    private void OnTriggerStay(Collider other)
     {
-        if (curMessage != null)
-        {
-            if (Input.GetAxis("RT")>0)
+         if (other.CompareTag("Player"))
+         {
+            if (Input.GetAxis("RT") > 0f)
             {
-                //Activate Renderer
-                transform.GetChild(0).GetComponent<Renderer>().enabled = true;
-                isActivated = true;
-                //Destroy Message
-                GameObject.Destroy(curMessage);
-                curMessage = null;
-                //Open Door
-                DoorToOpen.GetComponent<InterfaceLetherTrigger>().OnSwitchTrigger();
+                if (!other.GetComponent<PlayerMovement>().getCanonMode())
+                {
+                    //Activate Renderer
+                    transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+                    isActivated = true;
+                    //Destroy Message
+                    GameObject.Destroy(curMessage);
+                    curMessage = null;
+                    //Open Door
+                    DoorToOpen.GetComponent<InterfaceLetherTrigger>().OnSwitchTrigger();
+                }
             }
-        }
+         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if ((curMessage == null) && (!isActivated))
+            if (!other.GetComponent<PlayerMovement>().getCanonMode())
             {
-                curMessage = UI_Spawner.instance.spawn(uitype, button, text, GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+                if ((curMessage == null) && (!isActivated))
+                {
+                    curMessage = UI_Spawner.instance.spawn(uitype, button, text, GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+                }
             }
         }
     }
@@ -50,7 +56,6 @@ public class PlaceCanvas : MonoBehaviour {
             {
                 GameObject.Destroy(curMessage);
                 curMessage = null;
-               
             }
         }
     }
