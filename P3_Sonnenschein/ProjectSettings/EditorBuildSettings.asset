@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/3_Scenes/Levels/Hiding QR 1.unity
     guid: c70bace00811edb4994bf5d9686419e6
   - enabled: 1
+    path: Assets/3_Scenes/Levels/Hiding QR2.unity
+    guid: ee2e62b7a9fe09f4d9d858dfeb0a1082
+  - enabled: 1
     path: Assets/3_Scenes/Tutorials/Tutorial Legs.unity
     guid: 69798cf8ddf12974783ff0dc759e551e
   - enabled: 1

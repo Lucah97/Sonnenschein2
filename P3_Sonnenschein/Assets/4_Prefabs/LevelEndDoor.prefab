@@ -247,3 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2032df88d059b44497f319330afef74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  end: {fileID: 32900000, guid: be87e0016b1647b4286eca0960289728, type: 3}
+  LoadCustomScene: 0
+  ReturnDoor: 0
+  IsTrigger: 0
+  customscene: 
+  SceneSaver: {fileID: 0}

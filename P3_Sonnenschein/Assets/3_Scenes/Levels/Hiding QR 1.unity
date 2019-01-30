@@ -12842,12 +12842,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1025248706769454, guid: e39f630be53e7e64aab7d64fd16622a2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114038171138036004, guid: e39f630be53e7e64aab7d64fd16622a2,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65887849965849002, guid: e39f630be53e7e64aab7d64fd16622a2,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e39f630be53e7e64aab7d64fd16622a2, type: 2}

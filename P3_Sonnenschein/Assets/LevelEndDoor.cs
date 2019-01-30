@@ -56,7 +56,7 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
         {
             if (LoadCustomScene || Returning)
             {
-                if (Input.GetButtonDown("RT") || IsTrigger)
+                if (Input.GetButtonDown("RT") || IsTrigger || Input.GetButtonDown("Jump"))
                 {
                     if (!ReturnDoor)
                     {
