@@ -56,9 +56,15 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
         {
             if (LoadCustomScene || Returning)
             {
+<<<<<<< HEAD
                 if (!other.GetComponent<PlayerMovement>().getCanonMode())
                 { 
                     if ((Input.GetAxis("RT") > 0) || IsTrigger)
+=======
+                if (Input.GetButtonDown("RT") || IsTrigger || Input.GetButtonDown("Jump"))
+                {
+                    if (!ReturnDoor)
+>>>>>>> master
                     {
                         if (!ReturnDoor)
                         {
