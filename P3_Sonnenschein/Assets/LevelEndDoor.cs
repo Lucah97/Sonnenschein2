@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.PostProcessing;
 
-public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
+public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger
+{
 
     public VideoClip end;
 
@@ -31,13 +32,13 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
 
     private void Start()
     {
-       if(Returning )
+        if (Returning)
         {
             GameObject.FindGameObjectWithTag("Player").transform.position = LastPos;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAbilities>().CanonStrenght = 14;
             Returning = false;
         }
-       if(ReturnDoor)
+        if (ReturnDoor)
         {
             customscene = GameObject.Find("SceneSaver").GetComponent<OldScene>().LastScene;
             LoadCustomScene = true;
@@ -56,15 +57,9 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger {
         {
             if (LoadCustomScene || Returning)
             {
-<<<<<<< HEAD
                 if (!other.GetComponent<PlayerMovement>().getCanonMode())
-                { 
-                    if ((Input.GetAxis("RT") > 0) || IsTrigger)
-=======
-                if (Input.GetButtonDown("RT") || IsTrigger || Input.GetButtonDown("Jump"))
                 {
-                    if (!ReturnDoor)
->>>>>>> master
+                    if ((Input.GetAxis("RT") > 0) || IsTrigger)
                     {
                         if (!ReturnDoor)
                         {
