@@ -7,6 +7,7 @@ using UnityEngine;
 public class CameraMovementZone : MonoBehaviour {
 
     [Header("Camera Properties")]
+    public bool Orthogonal;
     public bool followHorizontal;
     public bool followVertical;
     public bool followPlayerVelocity;
@@ -27,6 +28,16 @@ public class CameraMovementZone : MonoBehaviour {
     //### Built-In Functions ###
     void OnTriggerEnter(Collider other)
     {
+        //Sory fur meßing wiff yo cude, you're's truthly ugahndan nuckles. *cluck* *cluck* *cluck* alsu sory fur pad inglish.
+        if(Orthogonal)
+        {
+            if (other.CompareTag("Player")) { Camera.main.orthographic = true; }
+        }
+        else
+        {
+            if (other.CompareTag("Player")) { Camera.main.orthographic = false; }
+        }
+
         //Assign this CMZ to the Camera
         if (other.CompareTag("Player"))
         {
@@ -41,5 +52,12 @@ public class CameraMovementZone : MonoBehaviour {
         {
             attachedLights[i].enabled = state;
         }
+    }
+
+
+    //lul its me again
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") && Orthogonal) { Camera.main.orthographic = false; }
     }
 }
