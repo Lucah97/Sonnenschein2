@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/3_Scenes/Levels/Legs QR2.unity
     guid: 9f8675646beffda41b9f9c2f83809486
   - enabled: 1
+    path: Assets/3_Scenes/Tutorials/Tutorial Cannon.unity
+    guid: 20c6bac2fd0bca9448cd6ebef452386c
+  - enabled: 1
+    path: Assets/3_Scenes/Levels/Cannon QR 1.unity
+    guid: 4b821f8b3aff02a43aff5aa145d1fc5b
+  - enabled: 1
     path: Assets/3_Scenes/Levels/GoogleSearch.unity
     guid: 2be16157feadaea45bb488f7c066e44d
   - enabled: 1
