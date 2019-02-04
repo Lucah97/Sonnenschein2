@@ -1107,6 +1107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a5e4c2c37e3c4cbc9833008c7a738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Orthogonal: 0
   followHorizontal: 1
   followVertical: 1
   followPlayerVelocity: 0
@@ -2032,11 +2033,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4526033004309978, guid: 09a54ff7cce3ed744bc49d22bc05bee1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 83.6
+      value: -4.214
       objectReference: {fileID: 0}
     - target: {fileID: 4526033004309978, guid: 09a54ff7cce3ed744bc49d22bc05bee1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -3.072
       objectReference: {fileID: 0}
     - target: {fileID: 4526033004309978, guid: 09a54ff7cce3ed744bc49d22bc05bee1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2062,11 +2063,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114898837548503048, guid: 09a54ff7cce3ed744bc49d22bc05bee1,
+    - target: {fileID: 199939023361850924, guid: 09a54ff7cce3ed744bc49d22bc05bee1,
         type: 2}
-      propertyPath: debugSphere
+      propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 1551210772}
+      objectReference: {fileID: 2100000, guid: 123ac6dc79004e54b8b352a7e64acdca, type: 2}
     - target: {fileID: 199797572331754348, guid: 09a54ff7cce3ed744bc49d22bc05bee1,
         type: 2}
       propertyPath: m_Materials.Array.data[1]
@@ -2077,16 +2078,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 123ac6dc79004e54b8b352a7e64acdca, type: 2}
-    - target: {fileID: 199939023361850924, guid: 09a54ff7cce3ed744bc49d22bc05bee1,
+    - target: {fileID: 114898837548503048, guid: 09a54ff7cce3ed744bc49d22bc05bee1,
         type: 2}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: debugSphere
       value: 
-      objectReference: {fileID: 2100000, guid: 123ac6dc79004e54b8b352a7e64acdca, type: 2}
-    - target: {fileID: 114212618747754160, guid: 09a54ff7cce3ed744bc49d22bc05bee1,
-        type: 2}
-      propertyPath: currentAbilities.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1551210772}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a54ff7cce3ed744bc49d22bc05bee1, type: 2}
   m_IsPrefabAsset: 0
@@ -2808,6 +2804,7 @@ MonoBehaviour:
   - {fileID: 780634627}
   lerpSpeed: 1.25
   timeUntilMove: 3.5
+  BeginTimer: 0
 --- !u!1001 &515394087
 Prefab:
   m_ObjectHideFlags: 0
@@ -3176,6 +3173,14 @@ Prefab:
     - target: {fileID: 100000, guid: df39f9fea1206e041a2c396fa93993e2, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: df39f9fea1206e041a2c396fa93993e2, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: df39f9fea1206e041a2c396fa93993e2, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df39f9fea1206e041a2c396fa93993e2, type: 3}
@@ -4708,6 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a5e4c2c37e3c4cbc9833008c7a738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Orthogonal: 0
   followHorizontal: 1
   followVertical: 1
   followPlayerVelocity: 0
@@ -4741,7 +4747,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4287215132648328, guid: 15fb04b2660bfbb4e81ba4ebe87bcf0f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 90.463
+      value: 90.87
       objectReference: {fileID: 0}
     - target: {fileID: 4287215132648328, guid: 15fb04b2660bfbb4e81ba4ebe87bcf0f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4785,7 +4791,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4287215132648328, guid: 15fb04b2660bfbb4e81ba4ebe87bcf0f, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.6375002
+      value: 0.71130687
       objectReference: {fileID: 0}
     - target: {fileID: 1930862615406358, guid: 15fb04b2660bfbb4e81ba4ebe87bcf0f, type: 2}
       propertyPath: m_Layer
@@ -6558,6 +6564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a5e4c2c37e3c4cbc9833008c7a738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Orthogonal: 0
   followHorizontal: 1
   followVertical: 1
   followPlayerVelocity: 0
@@ -8194,6 +8201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a5e4c2c37e3c4cbc9833008c7a738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Orthogonal: 0
   followHorizontal: 1
   followVertical: 1
   followPlayerVelocity: 0
