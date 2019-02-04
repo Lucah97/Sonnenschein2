@@ -1313,6 +1313,16 @@ Prefab:
       value: 
       objectReference: {fileID: 32900000, guid: 21a8ec0bfc3d111409fa2e2a18a45173,
         type: 3}
+    - target: {fileID: 23905988959275082, guid: 603e5cb35dd1cf044beaf8f7c6599ed4,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23905988959275082, guid: 603e5cb35dd1cf044beaf8f7c6599ed4,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 603e5cb35dd1cf044beaf8f7c6599ed4, type: 2}
   m_IsPrefabAsset: 0
@@ -10761,6 +10771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a5e4c2c37e3c4cbc9833008c7a738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Orthogonal: 0
   followHorizontal: 1
   followVertical: 0
   followPlayerVelocity: 0
