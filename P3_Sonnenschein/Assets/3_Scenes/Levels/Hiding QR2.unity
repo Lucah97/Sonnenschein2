@@ -5053,6 +5053,11 @@ Prefab:
       propertyPath: DoorToOpen
       value: 
       objectReference: {fileID: 1356250580}
+    - target: {fileID: 114573693415671642, guid: c0d88ab7010df2947beab9b28a9151e3,
+        type: 2}
+      propertyPath: text
+      value: Place artwork
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0d88ab7010df2947beab9b28a9151e3, type: 2}
   m_IsPrefabAsset: 0
