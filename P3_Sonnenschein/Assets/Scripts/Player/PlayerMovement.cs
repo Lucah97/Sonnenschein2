@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour {
     public bool allowInput = true;
     public float acceleration;
     public float maxMovSpeed;
+    [Range(0f, 1f)]
+    public float stickDeadZone;
     public float gravity;
     public float friction;
     public float jumpForce;
@@ -112,6 +114,9 @@ public class PlayerMovement : MonoBehaviour {
     {
         //Horizontal Movement 
         float horInput = Input.GetAxis("Horizontal");
+        if (Mathf.Abs(horInput) < stickDeadZone) { horInput = 0f; }
+        Debug.Log(horInput);
+
         velX += (horInput * (acceleration * transform.localScale.x));
         velX *= friction;
         velX = Mathf.Clamp(velX, -(maxMovSpeed * transform.localScale.x), 
