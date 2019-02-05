@@ -26,18 +26,13 @@ public class CanvasScript : MonoBehaviour {
         for (int i = 0; i <= Questions.Length-1; i++)
         {
             Questions[i].gameObject.SetActive(false);
-        }
-        
+        }      
     }
-
-    
 
 	// Update is called once per frame
 	void Update () {
         DisableButtons();
-        EndReached(Animatic);
-        Debug.Log(buttonsActive);
-
+        EndReached(Animatic); 
     }
 
     public void PressedRight()
