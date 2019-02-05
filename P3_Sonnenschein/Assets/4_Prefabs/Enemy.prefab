@@ -8467,7 +8467,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolSpots:
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114785912173374476
 MonoBehaviour:
   m_ObjectHideFlags: 1
