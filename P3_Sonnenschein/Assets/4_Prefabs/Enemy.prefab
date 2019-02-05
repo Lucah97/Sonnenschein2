@@ -4679,9 +4679,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153888689212614}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 34.81, y: -10.33, z: -5.5243034}
-  m_LocalScale: {x: 0.94705, y: 0.947049, z: 0.94705}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 31.065735, y: 0.16000032, z: 4.219769}
+  m_LocalScale: {x: 0.47352475, y: 0.47352457, z: 0.4735248}
   m_Children:
   - {fileID: 4720164671144934}
   - {fileID: 4160988710956440}
@@ -8445,7 +8445,7 @@ MonoBehaviour:
   SuspiciousFill: {fileID: 2800000, guid: bbe112949338aee438dabf917a7257a9, type: 3}
   ChaseFill: {fileID: 2800000, guid: 14fb0e3ec82113345ac2e34783239ece, type: 3}
   resetProgressOnLeave: 0
-  detectionSpeed: 25
+  detectionSpeed: 50
   detectionDecreaseSpeed: 0.7
   detectionClamp: {x: 0, y: 100}
   acceptedTags:
@@ -8466,6 +8466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpots:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &114785912173374476
 MonoBehaviour:
