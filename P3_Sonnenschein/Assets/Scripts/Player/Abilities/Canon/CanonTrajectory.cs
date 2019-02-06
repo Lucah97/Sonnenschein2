@@ -6,6 +6,7 @@ using UnityEngine;
 public class CanonTrajectory : MonoBehaviour {
 
     [Header("Trajectory Contruction")]
+    public Vector3 trajectoryOriginOffset;
     public int segAmount = 25;
     public float segScale = 1f;
     [Range(-10, 10)]
@@ -34,7 +35,7 @@ public class CanonTrajectory : MonoBehaviour {
         model = transform.GetChild(0).GetChild(0).gameObject;
 
         Vector3[] seg = new Vector3[segAmount+1];
-        seg[0] = transform.position;
+        seg[0] = transform.position + trajectoryOriginOffset;
         Vector3 segVel = model.transform.up * getStrength();
         hitObj = null;
         collisionIndex = segAmount;
