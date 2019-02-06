@@ -21,10 +21,12 @@ public class PlayerMovement : MonoBehaviour {
     public float zDepth;
     public float zDepthAdjustSpeed;
     public float rotationTime;
+    public float inputCoolDown;
 
     private float lastZdepth;
     private bool canonMode = false;
     private bool applyGravity = true;
+    private float elapsedInputCoolDown;
 
     [Header("Collision Properties")]
     [Range(60f, 90f)]
@@ -51,13 +53,16 @@ public class PlayerMovement : MonoBehaviour {
         //Setup Layer Collision
         Physics.IgnoreLayerCollision(8, 9, true);
         Physics.IgnoreLayerCollision(8, 10, true);
+
+        elapsedInputCoolDown = inputCoolDown;
     }
 
     private void FixedUpdate()
     {
         if (allowInput)
         {
-            processInput();
+            if (elapsedInputCoolDown <= inputCoolDown) { elapsedInputCoolDown += Time.deltaTime; }
+            if (elapsedInputCoolDown > inputCoolDown) { processInput(); }
         }
 
         //Setup animator variables
@@ -345,6 +350,7 @@ public class PlayerMovement : MonoBehaviour {
     public void setAllowIinput(bool i)
     {
         allowInput = i;
+        elapsedInputCoolDown = 0f;
     }
 
     public void setCanonMode (bool c)
