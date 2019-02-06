@@ -78,9 +78,12 @@ public class SwitchTrigger : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            if (curMessage == null)
+            if (!other.GetComponent<PlayerMovement>().getCanonMode())
             {
-                curMessage = UI_Spawner.instance.spawn(uitype, button, text, GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+                if (curMessage == null)
+                {
+                    curMessage = UI_Spawner.instance.spawn(uitype, button, text, GameObject.FindGameObjectWithTag("Player"), new Vector3(0, 2, 0));
+                }
             }
         }
     }

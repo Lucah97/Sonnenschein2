@@ -117,7 +117,9 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger
             Camera.main.gameObject.transform.GetChild(0).GetComponent<VideoPlayer>().Play();
 
             //Disable Controls
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+            other.GetComponent<PlayerMovement>().enabled = false;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            other.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 

@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         zDepth = transform.position.z;
         playerAnim = transform.GetChild(0).GetComponent<Animator>();
+        GetComponent<Rigidbody>().isKinematic = false;
 
         //Setup Layer Collision
         Physics.IgnoreLayerCollision(8, 9, true);
