@@ -21205,8 +21205,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805771431458714}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.6, y: -0.1, z: -0.00016242557}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.1, y: 2.303, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4836783613087742}
@@ -27103,7 +27103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8429f7f7f3aba7646bad931beabba098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAbilities: 020000000100000000000000
+  currentAbilities: 000000000000000000000000
   legsPrefab: {fileID: 1745898711654334, guid: ad5ce21762f69bb41980b981a73889e9, type: 2}
   canvasPrefab: {fileID: 1309448065193142, guid: 1cb684cd6b29e2747bf404dc6e7b12f8,
     type: 2}
@@ -27112,6 +27112,7 @@ MonoBehaviour:
   legSpawnDistance: 0.75
   legSpawnRadius: 0.05
   addZdepth: 1.05
+  canvasCoolDown: 1
   canonSpawnOffset: {x: 0, y: -0.35, z: 0}
   CanonStrenght: 14
 --- !u!114 &114213170283949942

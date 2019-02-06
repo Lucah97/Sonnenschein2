@@ -18,6 +18,8 @@ public class PlayerAbilities : MonoBehaviour {
 
     [Header("Hide Canvas Variables")]
     public float addZdepth;
+    public float canvasCoolDown;
+    private float elapsedCanvasCoolDown;
 
     [Header("Canon Variables")]
     public Vector3 canonSpawnOffset;
@@ -48,6 +50,16 @@ public class PlayerAbilities : MonoBehaviour {
         if ((Input.GetButtonDown("Y")) || (Input.GetKeyDown(KeyCode.P)))
         {
             useAbility(en_Abil.PA_CANON, 0);
+        }
+
+        //Cool Down Timers
+        if ((GameObject.FindGameObjectWithTag("Canvas") == null))
+        {
+            elapsedCanvasCoolDown += Time.deltaTime;
+        }
+        else
+        {
+            elapsedCanvasCoolDown = 0f;
         }
     }
     //
@@ -126,7 +138,7 @@ public class PlayerAbilities : MonoBehaviour {
         dir = Mathf.Clamp(dir, -1, 1);
 
         //Check if legs already exist
-        if (GameObject.FindGameObjectWithTag("Canvas") == null)
+        if ((GameObject.FindGameObjectWithTag("Canvas") == null))
         {
             //Check if Legs exist
             GameObject nLegs = GameObject.FindGameObjectWithTag("Legs");
@@ -174,18 +186,21 @@ public class PlayerAbilities : MonoBehaviour {
     {
         if ((GameObject.FindGameObjectWithTag("Canvas") == null) && (GameObject.FindGameObjectWithTag("Canon") == null))
         {
-            float curZ = transform.position.z;
-            curZ += addZdepth;
+            if (elapsedCanvasCoolDown >= canvasCoolDown)
+            {
+                float curZ = transform.position.z;
+                curZ += addZdepth;
 
-            PlayerMovement pm = GetComponent<PlayerMovement>();
+                PlayerMovement pm = GetComponent<PlayerMovement>();
 
-            Vector3 canvasPosition = transform.position;
-            canvasPosition.z += (addZdepth / 2);
-            Instantiate(canvasPrefab, canvasPosition, canvasPrefab.transform.rotation);
+                Vector3 canvasPosition = transform.position;
+                canvasPosition.z += (addZdepth / 2);
+                Instantiate(canvasPrefab, canvasPosition, canvasPrefab.transform.rotation);
 
-            pm.setZdepth(curZ, true);
-            pm.setAllowIinput(false);
-            pm.freezeVelocity();
+                pm.setZdepth(curZ, true);
+                pm.setAllowIinput(false);
+                pm.freezeVelocity();
+            }
         }
     }
 
