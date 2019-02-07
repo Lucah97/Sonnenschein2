@@ -8,6 +8,8 @@ public class CanonBehaviour : MonoBehaviour {
 
     public bool allowInput = true;
     public float timeUntilDespawn = 2f;
+    public float shootCoolDown = 0.3f;
+    private float elapsedShootCoolDown = 0f;
 
     [Header("Rotation Properties")]
     public float maxRotation;
@@ -24,6 +26,7 @@ public class CanonBehaviour : MonoBehaviour {
     private GameObject model;
 
     private bool hasShot = false;
+    private bool hasResetButton = false;
     private float elapsedTime = 0f;
 
     //### Built-In Functions ###
@@ -42,6 +45,8 @@ public class CanonBehaviour : MonoBehaviour {
     {
         if (!hasShot)
         {
+            elapsedShootCoolDown += Time.deltaTime;
+
             if (allowInput) { processInput(); }
 
             //Update canon trajectory
@@ -72,8 +77,11 @@ public class CanonBehaviour : MonoBehaviour {
         curRotation -= (horInput * rotationSpeed * Time.deltaTime);
         curRotation = Mathf.Clamp(curRotation, -maxRotation, maxRotation);
 
+        //Reset Button
+        if ((!hasResetButton) && ((Input.GetAxis("Jump") == 0) && (Input.GetAxis("Y") == 0))) { hasResetButton = true; }
+
         //Launch Canon
-        if (Input.GetAxis("Jump") == 1)
+        if ((elapsedShootCoolDown > shootCoolDown) && (hasResetButton) && ((Input.GetAxis("Jump") == 1) || (Input.GetAxis("Y") == 1)))
         {
             //Setup Player after shooting
             pm.enabled = true;
