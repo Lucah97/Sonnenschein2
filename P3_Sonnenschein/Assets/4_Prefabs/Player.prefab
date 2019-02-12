@@ -11636,6 +11636,7 @@ GameObject:
   - component: {fileID: 114898837548503048}
   - component: {fileID: 114212618747754160}
   - component: {fileID: 114213170283949942}
+  - component: {fileID: 114052197598977054}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -27079,6 +27080,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114052197598977054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805771431458714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef1f1806d4bb0545805a7087e9f6e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114150039338385044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27189,6 +27201,7 @@ MonoBehaviour:
   zDepth: -0.00016242557
   zDepthAdjustSpeed: 4.5
   rotationTime: 12.5
+  inputCoolDown: 0.2
   slopeAngle: 60
   collisionCheckDensity: 9
   speedStepCheck: 0.25

@@ -18,6 +18,11 @@ public class CameraMovement : MonoBehaviour {
     private CameraMovementZone cmz;
     private BoxCollider cmzCollider;
 
+    private float shakeStrength = 0f;
+    private float shakeLength = 0f;
+    private float elapsedShakeTime = 0f;
+    private bool doShake = false;
+
     //### Built-In Functions ###
     void Start()
     {
@@ -88,6 +93,34 @@ public class CameraMovement : MonoBehaviour {
 
         //SmoothDamp Camera Movement
         transform.position = Vector3.SmoothDamp(transform.position, colPosition, ref currentVelocity, cmz.cameraSmoothTime);
+
+        //Execute Camera Shake
+        if (doShake)
+        {
+            elapsedShakeTime += Time.deltaTime;
+
+            Vector3 curPos = transform.position;
+            curPos += new Vector3(Random.Range(-shakeStrength, shakeStrength),
+                                  Random.Range(-shakeStrength, shakeStrength),
+                                  Random.Range(-shakeStrength, shakeStrength));
+
+            shakeStrength = Mathf.Lerp(shakeStrength, 0, Time.deltaTime * (shakeLength / 2));
+
+            transform.position = curPos;
+
+            if (elapsedShakeTime > shakeLength)
+            {
+                doShake = false;
+            }
+        }
+    }
+
+    public void addCameraShake(float strength, float length)
+    {
+        shakeStrength = strength;
+        shakeLength = length;
+        doShake = true;
+        elapsedShakeTime = 0f;
     }
 
     private Vector3 getColPos(Vector3 desPos)

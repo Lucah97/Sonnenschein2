@@ -2335,11 +2335,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowInput: 1
   timeUntilDespawn: 2
+  shootCoolDown: 0.3
   maxRotation: 60
   rotationSpeed: 90
   strength: 10
   velocityMult: 2.07
   shootSmokeSpot: {fileID: 4491815328724564}
+  smokeScale: 2.1
+  camShakeStrenth: 0.6
+  camShakeLength: 0.252
 --- !u!120 &120722131640256610
 LineRenderer:
   m_ObjectHideFlags: 1

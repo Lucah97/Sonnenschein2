@@ -21,6 +21,11 @@ public class CanonBehaviour : MonoBehaviour {
     public float velocityMult;
     public Transform shootSmokeSpot;
 
+    [Header("Effect Properties")]
+    public float smokeScale = 2.1f;
+    public float camShakeStrenth = 3f;
+    public float camShakeLength = 1.2f;
+
     private PlayerMovement pm;
     private CanonTrajectory ct;
     private GameObject model;
@@ -62,7 +67,7 @@ public class CanonBehaviour : MonoBehaviour {
                 FX_Spawner.instance.spawnFX(en_EffectType.SmokeCloud,
                                             transform.position,
                                             Quaternion.Euler(new Vector3(-90, 0, 0)),
-                                            2.1f);
+                                            smokeScale);
 
                 Destroy(this.gameObject);
             }
@@ -94,6 +99,8 @@ public class CanonBehaviour : MonoBehaviour {
             //Enable Rendering
             pm.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
             pm.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
+            //Add camera shake
+            Camera.main.GetComponent<CameraMovement>().addCameraShake(camShakeStrenth, camShakeLength);
 
             transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", true);
             hasShot = true;
@@ -108,7 +115,7 @@ public class CanonBehaviour : MonoBehaviour {
             FX_Spawner.instance.spawnFX(en_EffectType.Trail,
                             pm.transform.position,
                             Quaternion.Euler(pm.transform.up),
-                            0.85f);
+                            smokeScale/2.5f);
             trail.transform.parent = pm.transform;
         }
     }
