@@ -17,7 +17,7 @@ public class PlaceCanvas : MonoBehaviour {
     {
          if (other.CompareTag("Player"))
          {
-            if (Input.GetAxis("RT") > 0f)
+            if ((Input.GetAxis("RT") > 0f) && (!isActivated))
             {
                 if (!other.GetComponent<PlayerMovement>().getCanonMode())
                 {
@@ -29,6 +29,14 @@ public class PlaceCanvas : MonoBehaviour {
                     curMessage = null;
                     //Open Door
                     DoorToOpen.GetComponent<InterfaceLetherTrigger>().OnSwitchTrigger();
+
+                    //SetCheckPoint
+                    CheckPointHandler.instance.setCheckPoint(other.transform.position);
+
+                    //Spawn Text
+                    GameObject nText = other.GetComponent<StateSymbolSpawner>().spawnSymbol(1);
+                    nText.GetComponent<TextMesh>().text = "Checkpoint Reached!";
+                    nText.GetComponent<TextMesh>().color = Color.green;
                 }
             }
          }

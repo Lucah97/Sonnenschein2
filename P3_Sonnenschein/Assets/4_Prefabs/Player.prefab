@@ -21237,8 +21237,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805771431458714}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.85, y: 0.89, z: -0.18}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.1, y: 2.303, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4836783613087742}
@@ -27147,7 +27147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8429f7f7f3aba7646bad931beabba098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAbilities: 020000000000000000000000
+  currentAbilities: 000000000000000000000000
   legsPrefab: {fileID: 1745898711654334, guid: ad5ce21762f69bb41980b981a73889e9, type: 2}
   canvasPrefab: {fileID: 1309448065193142, guid: 1cb684cd6b29e2747bf404dc6e7b12f8,
     type: 2}
@@ -27172,6 +27172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symbols:
   - {fileID: 1697056754645896, guid: 827b766be82a0c244a3e1c8ca8f6c326, type: 2}
+  - {fileID: 1697056754645896, guid: 1e9ca7f4964b5184eb12d7c37548d6b7, type: 2}
 --- !u!114 &114277525218404732
 MonoBehaviour:
   m_ObjectHideFlags: 1
