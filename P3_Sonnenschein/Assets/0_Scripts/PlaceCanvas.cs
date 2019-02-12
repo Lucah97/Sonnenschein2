@@ -31,7 +31,7 @@ public class PlaceCanvas : MonoBehaviour {
                     DoorToOpen.GetComponent<InterfaceLetherTrigger>().OnSwitchTrigger();
 
                     //SetCheckPoint
-                    CheckPointHandler.instance.setCheckPoint(other.transform.position);
+                    //CheckPointHandler.instance.setCheckPoint(other.transform.position);
 
                     //Spawn Text
                     GameObject nText = other.GetComponent<StateSymbolSpawner>().spawnSymbol(1);
