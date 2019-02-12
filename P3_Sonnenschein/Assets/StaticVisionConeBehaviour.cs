@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
-public class StaticVisionConeBehaviour : MonoBehaviour {
+public class StaticVisionConeBehaviour : MonoBehaviour, InterfaceLetherTrigger {
 
     public VideoClip loose;
+
+    private bool current = true;
 
 	// Use this for initialization
 	void Start () {
@@ -35,5 +37,13 @@ public class StaticVisionConeBehaviour : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
             }
         }
+    }
+
+    public void OnSwitchTrigger()
+    {
+        gameObject.GetComponent<MeshCollider>().enabled = !current;
+        gameObject.GetComponent<MeshRenderer>().enabled = !current;
+
+        current = !current;
     }
 }
