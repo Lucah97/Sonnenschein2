@@ -7,12 +7,20 @@ using UnityEngine;
 public class RestartLevel : MonoBehaviour {
 
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
+        /*
 		if (Input.GetKeyDown(KeyCode.Space))
         {
             if (GetComponent<Image>().enabled)
             {
                 SceneManager.LoadScene(0);
+            }
+        }*/
+        if (GetComponent<PlayerMovement>().allowInput)
+        {
+            if (Input.GetButton("Start"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
 	}
