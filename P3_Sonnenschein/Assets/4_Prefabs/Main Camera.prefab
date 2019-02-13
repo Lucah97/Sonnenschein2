@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477001694839548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2718508, y: 6.014338, z: -13.949996}
+  m_LocalPosition: {x: 1.1731261, y: -0.9409061, z: -11.570001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4524001012998388}
@@ -193,6 +193,8 @@ MonoBehaviour:
   CustomScene: 
   waitForInput: 2
   blackVid: {fileID: 32900000, guid: eace1cc1b89ee1d47a8ec784c694eeb6, type: 3}
+  perspScale: {x: 1.089167, y: 0.6975122, z: 0.6227622}
+  orthoScale: {x: 1.804958, y: 1.155911, z: 1.032036}
 --- !u!114 &114758520385175566
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -11,6 +11,9 @@ public class VidRestart : MonoBehaviour {
     public float waitForInput = 2f;
     public VideoClip blackVid;
 
+    public Vector3 perspScale;
+    public Vector3 orthoScale;
+
     private float elapsedTime = 0f;
     private bool hasDisabled = false;
 
@@ -23,6 +26,7 @@ public class VidRestart : MonoBehaviour {
     void Update () {
         if (GetComponent<Renderer>().enabled)
         {
+            adjustScreenScale();
             if (customload)
             {
                 LoadcustomScene(CustomScene);
@@ -69,6 +73,13 @@ public class VidRestart : MonoBehaviour {
             }
         }
 	}
+
+    private void adjustScreenScale()
+    {
+        bool ortho = Camera.main.orthographic;
+
+        transform.localScale = ((ortho) ? orthoScale : perspScale);
+    }
 
     public void LoadcustomScene(string SceneName)
     {
