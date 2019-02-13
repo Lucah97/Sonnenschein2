@@ -34,9 +34,9 @@ public class PlaceCanvas : MonoBehaviour {
                     //CheckPointHandler.instance.setCheckPoint(other.transform.position);
 
                     //Spawn Text
-                    GameObject nText = other.GetComponent<StateSymbolSpawner>().spawnSymbol(1);
-                    nText.GetComponent<TextMesh>().text = "Checkpoint Reached!";
-                    nText.GetComponent<TextMesh>().color = Color.green;
+                    //GameObject nText = other.GetComponent<StateSymbolSpawner>().spawnSymbol(1);
+                    //nText.GetComponent<TextMesh>().text = "Checkpoint Reached!";
+                    //nText.GetComponent<TextMesh>().color = Color.green;
                 }
             }
          }
