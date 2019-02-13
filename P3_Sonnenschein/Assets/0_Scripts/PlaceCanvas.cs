@@ -30,13 +30,8 @@ public class PlaceCanvas : MonoBehaviour {
                     //Open Door
                     DoorToOpen.GetComponent<InterfaceLetherTrigger>().OnSwitchTrigger();
 
-                    //SetCheckPoint
-                    //CheckPointHandler.instance.setCheckPoint(other.transform.position);
-
-                    //Spawn Text
-                    //GameObject nText = other.GetComponent<StateSymbolSpawner>().spawnSymbol(1);
-                    //nText.GetComponent<TextMesh>().text = "Checkpoint Reached!";
-                    //nText.GetComponent<TextMesh>().color = Color.green;
+                    //Spawn Fireworks
+                    FX_Spawner.instance.spawnFX(en_EffectType.Fireworks, transform.position + (new Vector3(0,-7,0)), Quaternion.Euler(new Vector3(-90f, 0f, 0f)), 0.65f);
                 }
             }
          }
