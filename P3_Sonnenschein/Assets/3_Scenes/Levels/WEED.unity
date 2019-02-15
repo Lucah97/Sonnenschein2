@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a5e4c2c37e3c4cbc9833008c7a738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Orthogonal: 0
+  Orthogonal: 1
   followHorizontal: 1
   followVertical: 1
   followPlayerVelocity: 0
@@ -1286,16 +1286,6 @@ Prefab:
     - target: {fileID: 1477001694839548, guid: d0d95c07fa43d474c9602faf077d15c2, type: 2}
       propertyPath: m_Name
       value: Main Camera (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 20947842715071960, guid: d0d95c07fa43d474c9602faf077d15c2,
-        type: 2}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20947842715071960, guid: d0d95c07fa43d474c9602faf077d15c2,
-        type: 2}
-      propertyPath: orthographic size
-      value: 6.64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0d95c07fa43d474c9602faf077d15c2, type: 2}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ExitGame : MonoBehaviour {
@@ -13,7 +14,7 @@ public class ExitGame : MonoBehaviour {
 	void Update () {
         if (Input.GetButton("Jump"))
         {
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
     }
 }

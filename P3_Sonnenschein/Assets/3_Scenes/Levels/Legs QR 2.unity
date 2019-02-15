@@ -700,11 +700,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 953841514}
     m_Modifications:
-    - target: {fileID: 114699562909206110, guid: 00b8ddad0f7bf9540a3c3755740993bc,
-        type: 2}
-      propertyPath: patrolSpots.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4143074767278676, guid: 00b8ddad0f7bf9540a3c3755740993bc, type: 2}
       propertyPath: m_LocalPosition.x
       value: 35.62
@@ -736,18 +731,6 @@ Prefab:
     - target: {fileID: 4143074767278676, guid: 00b8ddad0f7bf9540a3c3755740993bc, type: 2}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143074767278676, guid: 00b8ddad0f7bf9540a3c3755740993bc, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143074767278676, guid: 00b8ddad0f7bf9540a3c3755740993bc, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.94705045
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143074767278676, guid: 00b8ddad0f7bf9540a3c3755740993bc, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.94705045
       objectReference: {fileID: 0}
     - target: {fileID: 114699562909206110, guid: 00b8ddad0f7bf9540a3c3755740993bc,
         type: 2}

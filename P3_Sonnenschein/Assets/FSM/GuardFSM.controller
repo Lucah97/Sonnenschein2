@@ -55,7 +55,7 @@ MonoBehaviour:
   npc: {fileID: 0}
   npcAnim: {fileID: 0}
   chaseObj: {fileID: 0}
-  movementSpeed: 3.96
+  movementSpeed: 5.65
   rotationSpeed: 600
   chaseMaxDistance: 20
 --- !u!114 &114620531004669722
