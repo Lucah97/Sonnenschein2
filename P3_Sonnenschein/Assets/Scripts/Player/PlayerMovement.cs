@@ -55,9 +55,6 @@ public class PlayerMovement : MonoBehaviour {
         Physics.IgnoreLayerCollision(8, 9, true);
         Physics.IgnoreLayerCollision(8, 10, true);
 
-        //Setup checkpoint position
-        //transform.position = CheckPointHandler.instance.getPlayerPosition();
-
         elapsedInputCoolDown = inputCoolDown;
     }
 

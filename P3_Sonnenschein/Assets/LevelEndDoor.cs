@@ -111,6 +111,9 @@ public class LevelEndDoor : MonoBehaviour, InterfaceLetherTrigger
         }
         if ((isOpen) && (other.tag == "Player"))
         {
+            //Delete Scenesaver
+            GameObject.Destroy(GameObject.FindGameObjectWithTag("scenesaver"));
+
             //Enable video
             Camera.main.gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
             Camera.main.gameObject.transform.GetChild(0).GetComponent<VideoPlayer>().clip = end;

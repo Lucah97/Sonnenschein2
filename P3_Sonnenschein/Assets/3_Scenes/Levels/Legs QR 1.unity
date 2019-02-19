@@ -3200,6 +3200,48 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d590de2d0533b94abb237474217485e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &391911738
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4454097786317262, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454097786317262, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454097786317262, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454097786317262, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454097786317262, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454097786317262, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454097786317262, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454097786317262, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14dc3276f0dc025459fd8d1566f3839d, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &394608682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1930862615406358, guid: 15fb04b2660bfbb4e81ba4ebe87bcf0f,

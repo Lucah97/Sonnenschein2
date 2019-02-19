@@ -5948,6 +5948,10 @@ Prefab:
       propertyPath: SceneSaver
       value: 
       objectReference: {fileID: 1427292474}
+    - target: {fileID: 1590254905507178, guid: 9fc060f36e3cc144c9111046643a75bc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fc060f36e3cc144c9111046643a75bc, type: 2}
   m_IsPrefabAsset: 0
@@ -10630,7 +10634,7 @@ MonoBehaviour:
   followPlayerVelocity: 0
   playerVelocityMultiplier: 3
   clipHorizontal: {x: 0.8, y: 1}
-  clipVertical: {x: 0.63, y: 1}
+  clipVertical: {x: -0.06, y: 1}
   cameraOffset: {x: 0, y: -8}
   cameraDistance: -17
   cameraSmoothTime: 0.25
